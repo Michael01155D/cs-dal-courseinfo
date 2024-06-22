@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const User = require('./User');
 
 const reviewSchema = new Schema({
     content: {
         type: String,
         required: true,
         maxLength: 500 //??? 
+    },
+    course: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course"
     },
     proffesor: String,
     yearTaken: Number,

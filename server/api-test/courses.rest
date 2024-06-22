@@ -9,20 +9,18 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 0002",
-    "courseDescription": "The need for a second test object",
-    "certificateElective": true
+    "courseCode": "CSCI 0010",
+    "courseDescription": "The Sequel to Everything",
+    "prerequisites": ["66774e7652042292a2961171"]
 }
 
 ##############
-PUT http://localhost:3000/courses/66774f1f52042292a2961175
+PUT http://localhost:3000/courses/xxxxxxxxxxxx
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 0011",
-    "courseDescription": "The Updated Version of CSCI 0002",
-    "certificateElective": false
+    "placeholder"
 }
 
 ##########
-DELETE http://localhost:3000/courses/66774f1f52042292a2961175
+DELETE http://localhost:3000/courses/xxxxxxxxxxxx

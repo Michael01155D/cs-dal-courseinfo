@@ -1,0 +1,32 @@
+GET http://localhost:3000/reviews
+
+
+###########
+GET http://localhost:3000/reviews
+
+##############
+POST http://localhost:3000/reviews
+Content-Type: application/json
+
+{
+    "content": "I wish it covered more topics...",
+    "quality": 4,
+    "difficulty": 2,
+    "courseLoad": 1,
+    "courseId": "66774e7652042292a2961171"
+}
+
+##############
+PUT http://localhost:3000/reviews/66776104a3c4a2b25735dfa9
+Content-Type: application/json
+
+{
+    "content": "I wish it was UPDATED to cover more topics...",
+    "quality": 4,
+    "difficulty": 1,
+    "courseLoad": 1,
+    "courseId": "66774e7652042292a2961171"
+}
+
+##########
+DELETE http://localhost:3000/reviews

@@ -2,13 +2,17 @@ const courseRouter = require('express').Router();
 const Course = require('../models/Course');
 
 courseRouter.get('/', async (req, res) => {
-    const courses = await Course.find({});
+    const courses = await Course.find({})
+    .populate("reviews", {_id: 1, content: 1, quality: 1, difficulty: 1, courseLoad: 1, created: 1})
+    .populate("prerequisites", {courseCode: 1, courseDescription: 1});
     res.status(200).json(courses);
 })
 
 courseRouter.get('/:id', async (req, res) => {
     try {
-        const course = await Course.findById(req.params.id).populate("reviews");
+        const course = await Course.findById(req.params.id)
+        .populate("reviews", {_id: 1, content: 1, quality: 1, difficulty: 1, courseLoad: 1, created: 1})
+        .populate("prerequisites", {courseCode: 1, courseDescription: 1});
         if (course) {
             res.status(200).json(course);
         } else {
@@ -21,7 +25,6 @@ courseRouter.get('/:id', async (req, res) => {
 
 courseRouter.post('/', async (req, res) => {
     const newCourse = new Course(req.body);
-    console.log("req body is: ", req.body);
     try {
         const savedCourse = await newCourse.save();
         res.status(201).json(savedCourse);
