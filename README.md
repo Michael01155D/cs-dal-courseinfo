@@ -13,8 +13,8 @@ Frontend:
 
 
 Backend:
--Create Server using Express
--Create MongoDB cluster, connect it to express server.
+~~-Create Server using Express~~
+~~-Create MongoDB cluster, connect it to express server.~~
 -Create Mongo schema&models for Courses, users, and reviews (Courses -> Reviews One to many)
 -Create REST API routes for CRUD operations.
 -Implement User Authentication
