@@ -1,14 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-
+const coursesRouter = require('./controllers/courses');
 dotenv.config();
 const MONGO_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT;
 const server = express();
+server.use("/courses", coursesRouter);
 
 server.get("/", (req, res) => {
-    res.send("Hello")
+    res.send("Hello");
 })
 
 server.listen(PORT, () => {
