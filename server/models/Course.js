@@ -14,6 +14,10 @@ const courseSchema = new Schema({
         type: String,
         required: true
     },
+    prerequisites: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course"
+    }],
     degreeRequirement: {
         type: Boolean,
         required: true,
@@ -48,7 +52,11 @@ const courseSchema = new Schema({
     beseElective: {
         type: Boolean,
         default: false
-    }
+    },
+    socialScienceElective: {
+        type: Boolean,
+        default: false
+    },
 })
 
 module.exports = mongoose.model("Course", courseSchema);
