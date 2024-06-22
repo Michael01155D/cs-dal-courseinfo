@@ -1,0 +1,11 @@
+GET http://localhost:3000/courses
+
+
+##############
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+    "courseCode": "CSCI 0001",
+    "courseDescription": "Intro to Everything"
+}

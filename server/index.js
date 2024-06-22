@@ -6,6 +6,7 @@ dotenv.config();
 const MONGO_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT;
 const server = express();
+server.use(express.json());
 server.use("/courses", coursesRouter);
 
 server.get("/", (req, res) => {
@@ -16,6 +17,6 @@ server.listen(PORT, () => {
     console.log("Server connected on port:", PORT);
 })
 
-mongoose.connect(MONGO_URL).then(result => {
+mongoose.connect(MONGO_URL).then(res => {
     console.log("Connected to MongoDB!");
 }).catch(e => {console.log("Connection to MongoDB Failed, error:", e.message)})

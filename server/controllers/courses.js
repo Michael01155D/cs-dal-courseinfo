@@ -21,6 +21,7 @@ courseRouter.get('/:id', async (req, res) => {
 
 courseRouter.post('/', async (req, res) => {
     const newCourse = new Course(req.body);
+    console.log("req body is: ", req.body);
     try {
         const savedCourse = await newCourse.save();
         res.status(201).json(savedCourse);

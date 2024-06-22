@@ -16,7 +16,8 @@ const courseSchema = new Schema({
     },
     degreeRequirement: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     reviews: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -27,21 +28,26 @@ const courseSchema = new Schema({
     avgCourseLoad: Number,
     certificateRequirement: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     certificateElective: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     coopRequirement: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     scienceWithLabElective: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     beseElective: {
-        type: Boolean
+        type: Boolean,
+        default: false
     }
 })
 
