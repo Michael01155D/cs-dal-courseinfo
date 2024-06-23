@@ -48,6 +48,12 @@ courseRouter.put('/:id', async (req, res) => {
 courseRouter.delete('/:id', async (req, res) => {
     try {
         await Course.findByIdAndDelete(req.params.id);
+        const hadAsPrereq = await Course.find({prerequisites: req.params.id});
+        if (hadAsPrereq) {
+            console.log("hadAsPrereq is", hadAsPrereq);
+            hadAsPrereq.prerequisites.filter(course => course.id != req.params.id);
+            await hadAsPrereq.save();
+        }
         res.status(204).end();
     } catch (exception) {
         res.status(500).json(exception);
