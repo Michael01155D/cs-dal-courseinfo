@@ -53,6 +53,11 @@ reviewRouter.put('/:id', async (req, res) => {
 reviewRouter.delete('/:id', async (req, res) => {
     try {
         await Review.findByIdAndDelete(req.params.id);
+        const courseReviewed = await Course.findById(req.body.courseId);
+        if (coruseReviewed) {
+            courseReviewed.reviews.filter(r => r._id != req.params.id);
+            await courseReviewed.save();
+        }
         res.status(204).end();
     } catch (exception) {
         res.status(500).json(exception);

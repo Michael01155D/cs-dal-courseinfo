@@ -9,24 +9,24 @@ POST http://localhost:3000/reviews
 Content-Type: application/json
 
 {
-    "content": "I wish it covered more topics...",
+    "content": "this will get deleted",
     "quality": 4,
     "difficulty": 2,
     "courseLoad": 1,
-    "courseId": "66774e7652042292a2961171"
+    "courseId": "6678688d84325796311b3691"
 }
 
 ##############
-PUT http://localhost:3000/reviews/66776104a3c4a2b25735dfa9
+PUT http://localhost:3000/reviews/6678692e9bacf2d29119253d
 Content-Type: application/json
 
 {
-    "content": "I wish it was UPDATED to cover more topics...",
+    "content": "updated before deleting...",
     "quality": 4,
     "difficulty": 1,
     "courseLoad": 1,
-    "courseId": "66774e7652042292a2961171"
+    "courseId": "6678688d84325796311b3691"
 }
 
 ##########
-DELETE http://localhost:3000/reviews
+DELETE http://localhost:3000/reviews/6678692e9bacf2d29119253d

@@ -9,18 +9,23 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 0010",
-    "courseDescription": "The Sequel to Everything",
-    "prerequisites": ["66774e7652042292a2961171"]
+    "courseCode": "CSCI 0000",
+    "courseDescription": "test",
+    "prerequisites": []
 }
 
 ##############
-PUT http://localhost:3000/courses/xxxxxxxxxxxx
+PUT http://localhost:3000/courses/6678645b7915040066b885a4
 Content-Type: application/json
 
 {
-    "placeholder"
+    "courseCode": "CSCI 0002",
+    "courseDescription": "seqUpdated",
+    "prerequisites": []
 }
 
 ##########
-DELETE http://localhost:3000/courses/xxxxxxxxxxxx
+DELETE http://localhost:3000/courses/6678643f7915040066b885a1
+
+##### delete all
+GET http://localhost:3000/courses/nuke

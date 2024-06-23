@@ -1,6 +1,13 @@
 const courseRouter = require('express').Router();
 const Course = require('../models/Course');
 
+//for dev purposes only. remove once actual data is being used
+courseRouter.get('/nuke', async (req, res) => {
+    await Course.deleteMany({});
+    res.send("courses go boom");
+})
+
+
 courseRouter.get('/', async (req, res) => {
     const courses = await Course.find({})
     .populate("reviews", {_id: 1, content: 1, quality: 1, difficulty: 1, courseLoad: 1, created: 1})
@@ -45,12 +52,12 @@ courseRouter.put('/:id', async (req, res) => {
     }
 })
 
+//todo: delete all reviews of the deleted course, if any. 
 courseRouter.delete('/:id', async (req, res) => {
     try {
         await Course.findByIdAndDelete(req.params.id);
         const hadAsPrereq = await Course.find({prerequisites: req.params.id});
         if (hadAsPrereq) {
-            console.log("hadAsPrereq is", hadAsPrereq);
             hadAsPrereq.prerequisites.filter(course => course.id != req.params.id);
             await hadAsPrereq.save();
         }
