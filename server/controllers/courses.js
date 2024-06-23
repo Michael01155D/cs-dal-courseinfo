@@ -1,10 +1,12 @@
 const courseRouter = require('express').Router();
 const Course = require('../models/Course');
+const Review = require('../models/Review');
 
 //for dev purposes only. remove once actual data is being used
 courseRouter.get('/nuke', async (req, res) => {
     await Course.deleteMany({});
-    res.send("courses go boom");
+    await Review.deleteMany({});
+    res.send("courses and reviews go boom");
 })
 
 
@@ -52,15 +54,19 @@ courseRouter.put('/:id', async (req, res) => {
     }
 })
 
-//todo: delete all reviews of the deleted course, if any. 
+//todo: all reviews from deleted course are also deleted, and deleted from their author user as well
 courseRouter.delete('/:id', async (req, res) => {
     try {
-        await Course.findByIdAndDelete(req.params.id);
+        const courseToDelete = await Course.findByIdAndDelete(req.params.id);
+        if (courseToDelete.reviews.length > 0) {
+            await Review.deleteMany({course: req.params.id});
+        }
         const hadAsPrereq = await Course.find({prerequisites: req.params.id});
         if (hadAsPrereq) {
             hadAsPrereq.prerequisites.filter(course => course.id != req.params.id);
             await hadAsPrereq.save();
         }
+        
         res.status(204).end();
     } catch (exception) {
         res.status(500).json(exception);
