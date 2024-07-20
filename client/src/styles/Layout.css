@@ -1,0 +1,19 @@
+#mainContainer {
+   min-height: 100vh;
+   border: 3px solid white;
+   box-sizing: border-box;
+}
+
+
+
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    background-color: black;
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+}
