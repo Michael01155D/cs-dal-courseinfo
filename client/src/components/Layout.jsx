@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import '../styles/Layout.css';
 const Layout = () => {
     return(
-        <div id="mainContainer">
+        <div id="layoutContainer">
             <header>
                 <nav id="navBar">
                     <ul>
@@ -22,11 +22,11 @@ const Layout = () => {
                     </ul>
                 </nav>
             </header>
+            <Outlet />
             <footer id="footer">
                 <p>This website is unaffiliated with Dalhousie University. The accuracy of any information on this site cannot be guaranteed.</p>
                 <p>To do: add contact link</p>
             </footer>
-            <Outlet />
         </div>
     )
 }

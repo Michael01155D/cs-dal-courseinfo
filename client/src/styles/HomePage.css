@@ -1,0 +1,42 @@
+#homeContainer { 
+    display: grid;
+    grid-template-rows: 0.2fr fr 1fr 1fr;
+    grid-template-columns: 0.7fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "srch  title . . "
+    "srch  main main main"
+    "srch  main main main"
+    ".  main main main";
+    border: 2px solid red;
+    max-height: 100vh;
+
+}
+
+header {
+    grid-area: title;
+    text-align: center;
+}
+
+aside {
+    grid-area: srch;
+    border-right: 2px solid black;
+}
+
+main {
+    grid-area: main;
+    margin-left: 3%;
+}
+
+#featuredCourseContainer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    border:  1px solid red;
+    gap: 2em;
+}
+
+#recentCourseContainer {
+    display: flex;
+    gap: 5%;
+}
+
