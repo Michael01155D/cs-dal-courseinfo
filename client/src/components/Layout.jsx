@@ -10,10 +10,10 @@ const Layout = () => {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="Courses">Browse Courses</Link>
+                            <Link to="Courses">Courses</Link>
                         </li>
                         <li>
-                            <Link to="About">About This Website</Link>
+                            <Link to="About">About</Link>
                         </li>
                         {/*todo: conditionally render Link to Login vs. link to Profile*/}
                         <li>
@@ -23,7 +23,7 @@ const Layout = () => {
                 </nav>
             </header>
             <footer id="footer">
-                <p>This website is unaffiliated with Dalhousie University. Be aware, the accuracy of any information on this site cannot be guaranteed.</p>
+                <p>This website is unaffiliated with Dalhousie University. The accuracy of any information on this site cannot be guaranteed.</p>
                 <p>To do: add contact link</p>
             </footer>
             <Outlet />
