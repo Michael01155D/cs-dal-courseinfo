@@ -1,7 +1,8 @@
 const CoursesList = () => {
     return(
         <>
-        CoursesList here
+        There will be a big search bar at the top, then list of courses in flex column.
+        search bar will update the results dynamically.
         </>
     )
 }
