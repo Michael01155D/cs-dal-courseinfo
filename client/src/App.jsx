@@ -8,6 +8,7 @@ import UserProfile from './components/UserProfile';
 import AboutPage from './components/AboutPage';
 import CoursesList from './components/CoursesList';
 import CourseDetails from './components/CourseDetails';
+import CoursesByYear from './components/CoursesByYear';
 import NotFoundPage from './components/NotFoundPage';
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/courses" element={<CoursesList />} />
           <Route path="/courses:id" element={<CourseDetails />} />
+          <Route path="/courses/:year" element={<CoursesByYear />} />
           <Route path="*" element={<NotFoundPage/>} />
         </Route>
       </Routes>
