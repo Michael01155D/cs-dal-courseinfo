@@ -49,7 +49,7 @@ reviewRouter.put('/:id', async (req, res) => {
     }
 })
 
-//todo: delete the review from course's array as well
+//todo: delete the review from user's array as well
 reviewRouter.delete('/:id', async (req, res) => {
     try {
         await Review.findByIdAndDelete(req.params.id);

@@ -1,6 +1,7 @@
 #layoutContainer {
    min-height: 100vh;
    min-width: 320px;
+   max-width: 99vw;
    box-sizing: border-box;
    display: flex;
    flex-direction: column;

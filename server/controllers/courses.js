@@ -54,7 +54,7 @@ courseRouter.put('/:id', async (req, res) => {
     }
 })
 
-//todo: all reviews from deleted course are also deleted, and deleted from their author user as well
+//todo: all deleted course reviews are deleted from their author user as well
 courseRouter.delete('/:id', async (req, res) => {
     try {
         const courseToDelete = await Course.findByIdAndDelete(req.params.id);

@@ -9,11 +9,11 @@ POST http://localhost:3000/reviews
 Content-Type: application/json
 
 {
-    "content": "pls delete me",
+    "content": "should be deleted",
     "quality": 4,
     "difficulty": 2,
     "courseLoad": 1,
-    "courseId": "66786f303c20b1a4be133443"
+    "courseId": "667870ffe3e0b8cc1f2c569a"
 }
 
 ##############

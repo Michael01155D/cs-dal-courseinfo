@@ -9,8 +9,8 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 5555",
-    "courseDescription": "todelete",
+    "courseCode": "CSCI 4444",
+    "courseDescription": "toNotdelete",
     "prerequisites": []
 }
 
@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ##########
-DELETE http://localhost:3000/courses/66786f303c20b1a4be133443
+DELETE http://localhost:3000/courses/667870ffe3e0b8cc1f2c569a
 
 ##### delete all
 GET http://localhost:3000/courses/nuke
