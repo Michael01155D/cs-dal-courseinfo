@@ -8,9 +8,9 @@ const HomePage = () => {
             <header>
                 <h2>Dalhousie CS Course Info</h2>
             </header>
-            <aside>
+            <nav>
                 <CourseSearcher/>
-            </aside>
+            </nav>
             <main>
                 <section id="featuredCourses">
                     <h3>Featured Courses</h3>

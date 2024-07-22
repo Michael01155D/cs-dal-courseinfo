@@ -20,6 +20,10 @@
     margin: auto;
 }
 
+li {
+    font-size: large;
+}
+
 #footer {
     max-width: 100%;
     background-color: black;
@@ -27,4 +31,6 @@
     padding-left: 2%;
     padding-right: 2%;
     margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,7 +1,7 @@
 const NotFoundPage = () => {
     return(
         <>
-        FOUR OH FOUR!!!!
+        FOUR 0 FOUR
         </>
     )
 }
