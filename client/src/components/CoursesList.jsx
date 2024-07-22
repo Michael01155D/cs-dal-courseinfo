@@ -16,6 +16,8 @@ const CoursesList = ({courses}) => {
                     placeholder='Course Name or Code'
                     onChange={(e) => setQuery(e.target.value)}
                 />
+                <p>temporary: need to decide where to add the optional search filters here, maybe remove them from homepage?</p>
+                <p>current idea: change page from flex to grid, put filters on left side</p>
             </section>
             <section id='courses'>
                 <CoursePreview/>
