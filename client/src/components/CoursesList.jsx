@@ -8,7 +8,7 @@ const CoursesList = ({courses}) => {
     const navigate = useNavigate();
     //todo: once course objs are added, render them using filter
     const yearCourseRedirect = (year) => {
-        navigate(`/courses/${year}`)
+        navigate(`/courses/${year}`);
     }
     return(
         <div id='coursesListContainer'>
