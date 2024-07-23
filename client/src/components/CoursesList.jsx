@@ -7,7 +7,9 @@ import SearchFilters from './SearchFilters';
 const CoursesList = ({courses}) => {
     const [query, setQuery] = useState('');
     const [showFilters, setShowFilters] = useState(true);
+    const [checkedBoxes, setCheckedBoxes] = useState([]);
     //todo: once course objs are added, render them using filter
+    console.log("in CoursesList checkedBoxes are: ", checkedBoxes)
     return(
         <div id='coursesListContainer'>
             <header>
@@ -30,7 +32,7 @@ const CoursesList = ({courses}) => {
                 <section id='searchFilters'>
                     <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Hide Filters" : "Display Filters"}</button>
                     { showFilters ?
-                    <SearchFilters searchType='searchBar' /> : <></>
+                    <SearchFilters searchType='searchBar' checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes}/> : <></>
                     }
                 </section>
             </section>

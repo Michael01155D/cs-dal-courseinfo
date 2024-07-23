@@ -1,42 +1,37 @@
 import '../styles/SearchFilters.css'
+import Checkbox from './Checkbox';
 
-const SearchFilters = ({searchType}) => {
-    return(
-        <section id={searchType == "form" ? "searchFormFilters" : "courseListFilters"}>
-            <div>
-                <input name='bcs' id='bcs' type='checkbox'/>
-                <label htmlFor="bcs">BCS Requirement</label>
-            </div>
-            <div>
-                <input name='bacs' id='bacs' type='checkbox' />
-                <label htmlFor="bacs">BACS Requirement</label>
-            </div>
-            <div>
-                <input name='elective' id='elective' type='checkbox'/>
-                <label htmlFor="elective">Elective</label>
-            </div>
-            <div>
-                <input name='co-op' id='co-op' type='checkbox'/>
-                <label htmlFor="co-op">Co-Op Requirement</label>
-            </div>
-            <div>
-                <input name="year1" id="year1" type="checkbox"/>
-                <label htmlFor="year1">First Year</label>
-            </div>
-            <div>
-                <input name="year2" id="year2" type="checkbox"/>
-                <label htmlFor="year2">Second Year</label>
-            </div>
-            <div>
-                <input name="year3" id="year3" type="checkbox"/>
-                <label htmlFor="year3">Third Year</label>
-            </div>
-            <div>
-                <input name="year4" id="year4" type="checkbox"/>
-                <label htmlFor="year4">Fourth Year</label>
-            </div>
-        </section>
-    )
+const SearchFilters = ({searchType, checkedBoxes, setCheckedBoxes}) => {
+    //dont need to pass checkedBoxes/setCheckedBoxes props if this component is used in form
+    if (searchType == "form") {
+        return(
+            <section id="searchFormFilters">
+                <Checkbox idName='bcs' text='BCS Requirement'/>
+                <Checkbox idName='bacs' text='BACS Requirement'/>
+                <Checkbox idName='elective' text='Elective'/>
+                <Checkbox idName='co-op' text='Co-Op Requirement'/>
+                <Checkbox idName='year1' text='First Year'/>
+                <Checkbox idName='year2' text='Second Year'/>
+                <Checkbox idName='year3' text='Third Year'/>
+                <Checkbox idName='year4' text='Fourth Year'/>
+            </section>
+        )
+    }
+    if (searchType=="searchBar") {
+        return(
+            <section id="courseListFilters">
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='bcs' text='BCS Requirement'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='bacs' text='BACS Requirement'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='elective' text='Elective'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='co-op' text='Co-Op Requirement'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year1' text='First Year'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year2' text='Second Year'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year3' text='Third Year'/>
+                <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year4' text='Fourth Year'/>
+
+            </section>
+        )
+    }
 }
 
 export default SearchFilters;
