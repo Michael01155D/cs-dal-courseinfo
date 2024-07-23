@@ -1,14 +1,3 @@
-#searchFilters {
-    display: flex;
-    flex-direction: column;
-    border: none;
-}
-
-#searchFilters > div {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 form {
     border: none;
     margin: 5%;

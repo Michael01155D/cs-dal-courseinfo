@@ -32,3 +32,57 @@
     flex-direction: column;
     gap: 2em;
   }
+
+  #browseByYear {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr .5fr);
+    grid-template-rows: .5fr 1fr 1fr;
+    grid-template-areas:
+    'title title title .'
+    'first . third .'
+    'second . fourth .';
+    margin-bottom: 2%;
+  }
+
+  #browseByYear > h4 {
+    grid-area: title;
+  }
+
+  #firstYearLink {
+    grid-area: first;
+    border: 1px solid lightblue;
+    border-top: none;
+    border-left: none;
+  }
+
+  #secondYearLink{
+    grid-area: second;
+    border: 1px solid lightblue;
+    border-left: none;
+    border-bottom: none;
+    padding-top: 5%;
+  }
+
+  #thirdYearLink{
+    grid-area: third;
+    border: 1px solid lightblue;
+    border-top: none;
+    border-right: none;
+  }
+
+  #fourthYearLink{
+    grid-area: fourth;
+    border: 1px solid lightblue;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  #browseByYear > h4 ~ * {
+    padding: 5%;
+  }
+
+  /*get rid of the line animations used for navbar links */
+  #browseByYear > h4 ~ *::after {
+    background-color: white;
+  }
