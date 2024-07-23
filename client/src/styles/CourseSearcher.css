@@ -1,10 +1,15 @@
 form {
     border: none;
     margin: 5%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+    padding-right: 2%;
 }
 
 #searchQuery {
-    height: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     margin-top: 5%;
 }
 
@@ -12,8 +17,6 @@ form {
     background-color: black;
     color: white;
     margin-top: 1em;
-    margin-left: 2%;
-
 }
 
 #toggleSearchFilters {

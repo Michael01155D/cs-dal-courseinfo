@@ -2,9 +2,9 @@
     min-height: 80vh;
     width: 98vw;
     display: grid;
-    grid-template-columns: .8fr 1fr .6fr;
+    grid-template-columns: .5fr 1fr .6fr;
     grid-template-areas:
-    ". title ."
+    "byYear title ."
     "byYear srchBar filters"
     ". courses ."
     ". courses ."
@@ -27,7 +27,6 @@
 #searchFilters {
   grid-area: filters;
   align-self: center;
-  margin-bottom: 5%;
 }
 
 #searchFilters > button {
@@ -61,17 +60,13 @@
   #browseByYear {
     grid-area: byYear;
     text-align: center;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr .5fr);
-    grid-template-rows: .5fr 1fr 1fr;
-    grid-template-areas:
-    'title title title .'
-    'first . third .'
-    'second . fourth .';
+    display: flex;
+    flex-direction: column;
   }
 
   #browseByYear > :not(h4) {
     font-family: monospace;
+    font-size: large;
   }
   #browseByYear > h4 {
     grid-area: title;
@@ -79,7 +74,6 @@
 
   #firstYearLink {
     grid-area: first;
-    border-bottom: 1px solid lightblue;
   }
 
   #secondYearLink{
@@ -88,7 +82,6 @@
 
   #thirdYearLink{
     grid-area: third;
-    border-bottom: 1px solid lightblue;
   }
 
   #fourthYearLink{
@@ -97,6 +90,8 @@
 
   #browseByYear > h4 ~ * {
     padding: 3%;
+    width: 50%;
+    margin: auto;
   }
 
   #browseByYear > h4 ~ *:hover {
