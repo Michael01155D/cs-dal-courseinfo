@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import SearchFilters from './SearchFilters';
 
 const CoursesList = ({courses}) => {
-    const [query, setQuery] = useState(''); 
+    const [query, setQuery] = useState('');
+    const [showFilters, setShowFilters] = useState(true);
     //todo: once course objs are added, render them using filter
     return(
         <div id='coursesListContainer'>
@@ -27,8 +28,10 @@ const CoursesList = ({courses}) => {
                     onChange={(e) => setQuery(e.target.value)}
                 />
                 <section id='searchFilters'>
-                    <p>Filters (optional)</p>
-                    <SearchFilters searchType='searchBar' />
+                    <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Hide Filters" : "Display Filters"}</button>
+                    { showFilters ?
+                    <SearchFilters searchType='searchBar' /> : <></>
+                    }
                 </section>
             </section>
             <section id='courseSection'>
