@@ -10,6 +10,7 @@
 
 #navBar {
     min-width: 100%;
+    flex: 1;
 }
 
 #navBar > ul {

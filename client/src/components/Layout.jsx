@@ -10,14 +10,14 @@ const Layout = () => {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="Courses">Courses</Link>
+                            <Link to="courses">Courses</Link>
                         </li>
                         <li>
-                            <Link to="About">About</Link>
+                            <Link to="about">About</Link>
                         </li>
                         {/*todo: conditionally render Link to Login vs. link to Profile*/}
                         <li>
-                            <Link to="Login">Sign In</Link>
+                            <Link to="login">Sign In</Link>
                         </li>
                     </ul>
                 </nav>

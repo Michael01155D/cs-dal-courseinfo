@@ -1,7 +1,11 @@
 const Checkbox = ({idName, text, checkedBoxes, setCheckedBoxes}) => {
     //if this box is checked, add field name to array of checkedBoxes passed from CourseList component
     const isChecked = (e) => {
-        if (checkedBoxes && e.target.checked) {
+        if (!checkedBoxes) {
+            return;
+        }
+
+        if (e.target.checked) {
             setCheckedBoxes(checkedBoxes.concat(idName));
         } else {
             const updatedArr = checkedBoxes.filter(box => box != idName);

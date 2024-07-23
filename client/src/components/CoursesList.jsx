@@ -22,28 +22,27 @@ const CoursesList = ({courses}) => {
                 <Link id='thirdYearLink' to={"/courses/third"}>Third Year</Link>
                 <Link id='fourthYearLink'to={"/courses/fourth"}>Fourth Year</Link>
             </section>
-            <h3>Browse Through All Courses</h3>
-            <section id='search'>
+            <section id='searchBar'>
+                <h3>Browse Through All Courses</h3>
                 <label  className='visuallyHidden' htmlFor='searchInput'>Search</label>
                 <input type='text' id='searchInput' name='searchInput'
                     placeholder='Course Name or Code'
                     onChange={(e) => setQuery(e.target.value)}
-                />
-                <section id='searchFilters'>
-                    <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Hide Filters" : "Display Filters"}</button>
-                    { showFilters ?
-                    <SearchFilters searchType='searchBar' checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes}/> : <></>
-                    }
-                </section>
+                    />
             </section>
+            <section id='searchFilters'>
+                { showFilters ?
+                    <SearchFilters searchType='searchBar' checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes}/> : <></>
+                }
+                <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Hide Filters" : "Display Filters"}</button>
+                </section>
             <section id='courseSection'>
-                <h4>Found (replace w. size of courses array) Courses</h4>
+                <h4>Displaying (filtered arr.length) out of (unfiltered arr.length) Courses</h4>
                 <div id='courseGrid'>
                     <CoursePreview/>
                     <CoursePreview/>
                 </div>
             </section>
-
         </div>
     )
 }

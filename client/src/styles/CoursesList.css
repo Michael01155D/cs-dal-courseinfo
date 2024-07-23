@@ -1,18 +1,37 @@
 #coursesListContainer{
     min-height: 80vh;
     width: 98vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid red;
+    display: grid;
+    grid-template-columns: .8fr 1fr .6fr;
+    grid-template-areas:
+    ". title ."
+    "byYear srchBar filters"
+    ". courses ."
+    ". courses ."
+    ;
 }
 
+#searchBar {
+  grid-area: srchBar;
+  text-align: center;
+  margin-bottom: 5%;
+}
 
 #searchInput {
-    width: 50vw;
+    width: 30vw;
     border-radius: 12px;
     padding: 1em;
-    border: 2px solid gainsboro
+    border: 2px solid gainsboro;
+}
+
+#searchFilters {
+  grid-area: filters;
+  align-self: center;
+  margin-bottom: 5%;
+}
+
+#searchFilters > button {
+  background-color: rgba(173, 216, 230, 0.509);
 }
 
 /*Hide search bar label but keep it accessible */
@@ -27,6 +46,11 @@
     width: 1px;
   }
 
+  #courseSection {
+    grid-area: courses;
+    text-align: center;
+  }
+
   #courses {
     padding: 2%;
     display: flex;
@@ -35,6 +59,7 @@
   }
 
   #browseByYear {
+    grid-area: byYear;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(2, 1fr .5fr);
@@ -43,44 +68,39 @@
     'title title title .'
     'first . third .'
     'second . fourth .';
-    margin-bottom: 2%;
   }
 
+  #browseByYear > :not(h4) {
+    font-family: monospace;
+  }
   #browseByYear > h4 {
     grid-area: title;
   }
 
   #firstYearLink {
     grid-area: first;
-    border: 1px solid lightblue;
-    border-top: none;
-    border-left: none;
+    border-bottom: 1px solid lightblue;
   }
 
   #secondYearLink{
     grid-area: second;
-    border: 1px solid lightblue;
-    border-left: none;
-    border-bottom: none;
-    padding-top: 5%;
   }
 
   #thirdYearLink{
     grid-area: third;
-    border: 1px solid lightblue;
-    border-top: none;
-    border-right: none;
+    border-bottom: 1px solid lightblue;
   }
 
   #fourthYearLink{
     grid-area: fourth;
-    border: 1px solid lightblue;
-    border-right: none;
-    border-bottom: none;
   }
 
   #browseByYear > h4 ~ * {
-    padding: 5%;
+    padding: 3%;
+  }
+
+  #browseByYear > h4 ~ *:hover {
+    background-color: rgba(135, 207, 235, 0.297);
   }
 
   /*get rid of the line animations used for navbar links */

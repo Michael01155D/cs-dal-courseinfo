@@ -2,16 +2,14 @@
 
 #homeContainer { 
     display: grid;
-    grid-template-rows: 0.2fr fr 1fr 1fr;
-    grid-template-columns: 0.7fr 1.5fr 1.5fr .8fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr .8fr;
     grid-template-areas: 
     "srch  title . . "
     "srch  main main ."
     "srch  main main ."
     ".  main main .";
     border: 2px solid red;
-    max-height: 100vh;
-
 }
 
 header {
@@ -19,9 +17,8 @@ header {
     text-align: center;
 }
 
-nav {
+#homeContainer > nav {
     grid-area: srch;
-    border-right: 2px solid black;
 }
 
 main {
