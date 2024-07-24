@@ -98,7 +98,7 @@
     background-color: rgba(135, 207, 235, 0.297);
   }
 
-  /*get rid of the line animations used for navbar links */
+  /*gets rid of the line animations used for navbar links */
   #browseByYear > h4 ~ *::after {
     background-color: white;
   }
