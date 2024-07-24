@@ -4,10 +4,14 @@ import '../styles/CoursesByYear.css'
 const CoursesByYear = () => {
     const { year } = useParams();
     return(
-        <>
-        This page will render all courses of the year passed by parameter.
-        year is: {year}
-        </>
+        <div id='byYearContainer'>
+            <header>
+                <h2>{year[0].toUpperCase() + year.substring(1)}-Year Courses</h2>
+            </header>
+        <main id='yearCoursesList'>
+        <p>this is where filtered courses obj will be mapped to display each course</p>
+        </main>
+        </div>
     )
 }
 
