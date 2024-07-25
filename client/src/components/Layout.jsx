@@ -17,7 +17,7 @@ const Layout = () => {
                         </li>
                         {/*todo: conditionally render Link to Login vs. link to Profile*/}
                         <li>
-                            <Link to="login">Sign In</Link>
+                            <Link to="login">Sign In/ Sign Up</Link>
                         </li>
                     </ul>
                 </nav>

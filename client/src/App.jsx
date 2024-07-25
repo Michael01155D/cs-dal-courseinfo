@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './styles/App.css';
 import Layout from './components/Layout';
 import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 import HomePage from './components/HomePage';
 import UserProfile from './components/UserProfile';
 import AboutPage from './components/AboutPage';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route index element={<HomePage />} /> 
           <Route path="/login" element={<LoginPage />}/>
+          <Route path="/signUp" element={<SignUpPage />} />
           <Route path="/userProfile" element={<UserProfile/>}/>
           <Route path="/about" element={<AboutPage />} />
           <Route path="/courses" element={<CoursesList />} />

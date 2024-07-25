@@ -17,7 +17,7 @@ const CoursesByYear = () => {
                 setYearBgColor("rgba(140, 217, 243, 0.352)");
                 break;
             case "third":
-                setYearInfo("Considered by many CS students to be the hardest year, third year contains several extremely challenging courses that build on the foundations acquired. Buckle up, you've got this!");
+                setYearInfo("Considered by many CS students to be the hardest year, third year contains several extremely challenging courses that build on the foundations. It's okay, you've got this!");
                 setYearBgColor("rgba(229, 43, 43, 0.352)");
                 break;
             case "fourth": 

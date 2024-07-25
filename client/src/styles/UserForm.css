@@ -1,0 +1,59 @@
+.userForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px rgb(171, 171, 209) groove;
+    background-color: rgba(0, 0, 0, 0.811);
+    padding-bottom: 20px;
+    color: white;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+}
+
+.formHeader {
+    text-align: center;
+}
+
+/*Hide label but keep it accessible */
+.visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+.userForm > section > input {
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: .5em;
+    font-family: 'consolas';
+}
+
+input:focus {
+    box-shadow: 5px 5px 5px 5px rgb(242, 248, 74);
+}
+
+.userForm > section {
+    margin: 2%;
+}
+
+#passwordForm {
+    margin-top: 2%;
+}
+
+#formSubmitButton {
+    margin-top: 5%;
+    width: 20%;
+}
+
+#formSubmitButton:hover {
+    box-shadow: 5px 5px 5px  rgb(242, 248, 74);
+}
