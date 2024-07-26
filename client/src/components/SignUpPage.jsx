@@ -1,7 +1,7 @@
 import UserForm from "./UserForm"
 import '../styles/SignUpPage.css'
 import { Link } from 'react-router-dom'
-import ErrorMessage from "./ErrorMessage"
+import NotificationMessage from "./NotificationMessage"
 const SignUpPage = () => {
 
     const handleRegister = () => {
@@ -10,7 +10,7 @@ const SignUpPage = () => {
 
     return(
         <main id='signUpPageContainer'>
-            <ErrorMessage message={"test"}/>
+            <NotificationMessage message={"test"} isError={true}/>
             <UserForm requestHandler={handleRegister} formAction={"Create Account"}/>
             <Link id='loginLink' to="/login"> Return to Login Page</Link>
         </main>

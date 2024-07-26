@@ -4,9 +4,8 @@
     align-items: center;
     border: 1px rgb(171, 171, 209) groove;
     background-color: rgba(0, 0, 0, 0.811);
-    padding-bottom: 20px;
+    padding: 3em;
     color: white;
-    width: 50vw;
     height: 50vh;
     margin: auto;
 }
@@ -32,8 +31,9 @@
     border: none;
     outline: none;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: medium;
     padding: .5em;
+    margin-top: 5%;
     font-family: 'consolas';
 }
 
@@ -45,12 +45,8 @@ input:focus {
     margin: 2%;
 }
 
-#passwordForm {
-    margin-top: 2%;
-}
-
 #formSubmitButton {
-    margin-top: 5%;
+    margin-top: 55%;
     min-width: 20%;
 }
 
