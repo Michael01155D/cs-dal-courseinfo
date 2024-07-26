@@ -9,7 +9,6 @@
     "srch  main main ."
     "srch  main main ."
     ".  main main .";
-    border: 2px solid red;
 }
 
 header {
@@ -34,12 +33,15 @@ main {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    border:  1px solid red;
     gap: 2em;
 }
 
 #recentCourseContainer {
     display: flex;
     gap: 5%;
+    margin-bottom: 2%;
 }
 
+#recentlyUpdatedCourses {
+    margin-top: 5%;
+}

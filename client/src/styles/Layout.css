@@ -11,6 +11,7 @@
 #navBar {
     min-width: 100%;
     flex: 1;
+    background-color: rgba(0, 0, 0, 0.767);
 }
 
 #navBar > ul {
@@ -22,8 +23,9 @@
     margin: auto;
 }
 
-li {
+#navBar > ul > li > a {
     font-size: large;
+    color: white;
 }
 
 #footer {

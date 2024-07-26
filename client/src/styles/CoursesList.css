@@ -2,11 +2,12 @@
     min-height: 80vh;
     width: 98vw;
     display: grid;
+    column-gap: 10%;
     grid-template-columns: .5fr 1fr .6fr;
     grid-template-areas:
-    "byYear title ."
+    ". title ."
     "byYear srchBar filters"
-    ". courses ."
+    "byYear courses ."
     ". courses ."
     ;
 }
@@ -48,13 +49,16 @@
   #courseSection {
     grid-area: courses;
     text-align: center;
-  }
-
-  #courses {
     padding: 2%;
     display: flex;
     flex-direction: column;
     gap: 2em;
+  }
+
+  #courseGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
   }
 
   #browseByYear {
@@ -62,12 +66,17 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    border: 1px ridge black;
+    border-radius: 8%;
+    
   }
 
   #browseByYear > :not(h4) {
     font-family: monospace;
     font-size: large;
   }
+
+
   #browseByYear > h4 {
     grid-area: title;
   }
