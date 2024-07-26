@@ -37,7 +37,7 @@
     font-family: 'consolas';
 }
 
-input:focus {
+.userForm > section > input:focus {
     box-shadow: 5px 5px 5px 5px rgb(242, 248, 74);
 }
 
