@@ -1,11 +1,14 @@
-#loginPageContainer {
+#signUpPageContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#registrationLink {
+
+
+
+#loginLink {
     font-size: x-large;
     margin-top: 3%;
     font-family: 'garamond';

@@ -1,14 +1,19 @@
 import UserForm from "./UserForm"
-
+import '../styles/SignUpPage.css'
+import { Link } from 'react-router-dom'
+import ErrorMessage from "./ErrorMessage"
 const SignUpPage = () => {
 
     const handleRegister = () => {
-        console.log('this will do stuff')
+        console.log('this will do stuff');
     }
+
     return(
-        <>
-        <UserForm requestHandler={handleRegister} formAction={"Sign Up"}/>
-        </>
+        <main id='signUpPageContainer'>
+            <ErrorMessage message={"test"}/>
+            <UserForm requestHandler={handleRegister} formAction={"Create Account"}/>
+            <Link id='loginLink' to="/login"> Return to Login Page</Link>
+        </main>
     )
 }
 

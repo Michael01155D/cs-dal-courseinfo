@@ -51,7 +51,7 @@ input:focus {
 
 #formSubmitButton {
     margin-top: 5%;
-    width: 20%;
+    min-width: 20%;
 }
 
 #formSubmitButton:hover {
