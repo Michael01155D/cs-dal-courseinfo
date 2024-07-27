@@ -3,12 +3,12 @@
     width: 98vw;
     display: grid;
     column-gap: 10%;
-    grid-template-columns: .5fr 1fr .6fr;
+    grid-template-columns: .5fr 1fr .8fr;
     grid-template-areas:
-    ". title ."
-    "byYear srchBar filters"
-    "byYear courses ."
-    ". courses ."
+    ". title title ."
+    "byYear srchBar filters ."
+    "byYear courses . ."
+    ". courses . ."
     ;
 }
 
