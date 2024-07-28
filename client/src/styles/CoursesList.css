@@ -1,113 +1,197 @@
 #coursesListContainer{
-    min-height: 80vh;
-    width: 98vw;
-    display: grid;
-    column-gap: 10%;
-    grid-template-columns: .5fr 1fr .8fr;
-    grid-template-areas:
-    ". title title ."
-    "byYear srchBar filters ."
-    "byYear courses . ."
-    ". courses . ."
-    ;
+  min-height: 80vh;
+  width: 98vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 #searchBar {
-  grid-area: srchBar;
-  text-align: center;
-  margin-bottom: 5%;
+text-align: center;
+margin-bottom: 5%;
 }
 
 #searchInput {
-    width: 30vw;
-    border-radius: 12px;
-    padding: 1em;
-    border: 2px solid gainsboro;
+  width: 60vw;
+  border-radius: 12px;
+  padding: 1em;
+  border: 2px solid gainsboro;
 }
 
 #searchFilters {
-  grid-area: filters;
-  align-self: center;
+align-self: center;
 }
 
 #searchFilters > button {
-  background-color: rgba(173, 216, 230, 0.509);
+background-color: rgba(173, 216, 230, 0.509);
 }
 
 /*Hide search bar label but keep it accessible */
 .visuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#courseSection {
+  text-align: center;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+#courseGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+}
+
+#browseByYear {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#browseByYear > :not(h4) {
+  font-family: monospace;
+}
+
+#browseByYear > h4 ~ * {
+  padding: 1%;
+  width: fit-content;
+  margin: auto;
+}
+
+#browseByYear > h4 ~ *:hover {
+  background-color: rgba(135, 207, 235, 0.297);
+}
+
+/*gets rid of the line animations used for navbar links */
+#browseByYear > h4 ~ *::after {
+  background-color: white;
+}
+
+/* desktop view: */
+
+@media only screen and (min-width: 845px) {
+
+  #coursesListContainer{
+      min-height: 80vh;
+      width: 98vw;
+      display: grid;
+      column-gap: 10%;
+      grid-template-columns: .5fr 1fr .8fr;
+      grid-template-areas:
+      ". title title ."
+      "byYear srchBar filters ."
+      "byYear courses . ."
+      ". courses . ."
+      ;
   }
 
-  #courseSection {
-    grid-area: courses;
+  #searchBar {
+    grid-area: srchBar;
     text-align: center;
-    padding: 2%;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+    margin-bottom: 5%;
   }
 
-  #courseGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10%;
+  #searchInput {
+      width: 30vw;
+      border-radius: 12px;
+      padding: 1em;
+      border: 2px solid gainsboro;
   }
 
-  #browseByYear {
-    grid-area: byYear;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    border: 1px ridge black;
-    border-radius: 8%;
-    
+  #searchFilters {
+    grid-area: filters;
+    align-self: center;
   }
 
-  #browseByYear > :not(h4) {
-    font-family: monospace;
-    font-size: large;
+  #searchFilters > button {
+    background-color: rgba(173, 216, 230, 0.509);
   }
 
+  /*Hide search bar label but keep it accessible */
+  .visuallyHidden {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
 
-  #browseByYear > h4 {
-    grid-area: title;
-  }
+    #courseSection {
+      grid-area: courses;
+      text-align: center;
+      padding: 2%;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
 
-  #firstYearLink {
-    grid-area: first;
-  }
+    #courseGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10%;
+    }
 
-  #secondYearLink{
-    grid-area: second;
-  }
+    #browseByYear {
+      grid-area: byYear;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      border: 1px ridge black;
+      border-radius: 8%;
+      
+    }
 
-  #thirdYearLink{
-    grid-area: third;
-  }
+    #browseByYear > :not(h4) {
+      font-family: monospace;
+      font-size: large;
+    }
 
-  #fourthYearLink{
-    grid-area: fourth;
-  }
 
-  #browseByYear > h4 ~ * {
-    padding: 3%;
-    width: 50%;
-    margin: auto;
-  }
+    #browseByYear > h4 {
+      grid-area: title;
+    }
 
-  #browseByYear > h4 ~ *:hover {
-    background-color: rgba(135, 207, 235, 0.297);
-  }
+    #firstYearLink {
+      grid-area: first;
+    }
 
-  /*gets rid of the line animations used for navbar links */
-  #browseByYear > h4 ~ *::after {
-    background-color: white;
-  }
+    #secondYearLink{
+      grid-area: second;
+    }
+
+    #thirdYearLink{
+      grid-area: third;
+    }
+
+    #fourthYearLink{
+      grid-area: fourth;
+    }
+
+    #browseByYear > h4 ~ * {
+      padding: 3%;
+      width: 50%;
+      margin: auto;
+    }
+
+    #browseByYear > h4 ~ *:hover {
+      background-color: rgba(135, 207, 235, 0.297);
+    }
+
+    /*gets rid of the line animations used for navbar links */
+    #browseByYear > h4 ~ *::after {
+      background-color: white;
+    }
+}

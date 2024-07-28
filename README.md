@@ -27,11 +27,6 @@ Currently working on implementing mobile-layout.
 
 Media query todo list:
 
--Layout: 
-    -reduce navbar text size around ~400px (all )
--Homepage: 
-    -Reduce # of columns for courses at screen width ~750px. 
-
 -CoursesList: 
    -CoursesByYear section breaks lower than ~840px
     -checkboxes need to restyle around 600px
