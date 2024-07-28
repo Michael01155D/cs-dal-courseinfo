@@ -95,6 +95,9 @@ background-color: rgba(173, 216, 230, 0.509);
       ;
   }
 
+  #coursesListContainer > header {
+    grid-column-start: 1;
+  }
   #searchBar {
     grid-area: srchBar;
     text-align: center;
@@ -157,11 +160,6 @@ background-color: rgba(173, 216, 230, 0.509);
     #browseByYear > :not(h4) {
       font-family: monospace;
       font-size: large;
-    }
-
-
-    #browseByYear > h4 {
-      grid-area: title;
     }
 
     #firstYearLink {

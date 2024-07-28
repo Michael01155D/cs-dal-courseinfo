@@ -27,9 +27,5 @@ Currently working on implementing mobile-layout.
 
 Media query todo list:
 
--CoursesList: 
-   -CoursesByYear section breaks lower than ~840px
-    -checkboxes need to restyle around 600px
-
 -UserForm:
   -good until about 310px (link below form should be smaller font then)
