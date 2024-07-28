@@ -1,28 +1,12 @@
-/*todo: fix responsiveness */
+/*mobile layout*/
 
 #homeContainer { 
-    display: grid;
-    grid-template-rows: 0.2fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1.5fr 1.5fr .8fr;
-    grid-template-areas: 
-    "srch  title . . "
-    "srch  main main ."
-    "srch  main main ."
-    ".  main main .";
+    display: flex;
+    flex-direction: column;
 }
 
-header {
-    grid-area: title;
+#homeContainer > header {
     text-align: center;
-}
-
-#homeContainer > nav {
-    grid-area: srch;
-}
-
-main {
-    grid-area: main;
-    margin-left: 3%;
 }
 
 #featuredCourses  {
@@ -32,16 +16,74 @@ main {
 #featuredCourseContainer {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
-}
-
-#recentCourseContainer {
-    display: flex;
-    gap: 5%;
-    margin-bottom: 2%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
 }
 
 #recentlyUpdatedCourses {
     margin-top: 5%;
+    text-align: center;
+}
+
+
+
+#recentCourseContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+    margin-bottom: 2%;
+}
+
+
+
+
+
+/*desktop layout:*/
+
+@media only screen and (min-width: 768px) {
+    #homeContainer { 
+        display: grid;
+        grid-template-rows: 0.2fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1.5fr 1.5fr .8fr;
+        grid-template-areas: 
+        "srch  title . . "
+        "srch  main main ."
+        "srch  main main ."
+        ".  main main .";
+    }
+
+    header {
+        grid-area: title;
+        text-align: center;
+    }
+
+    #homeContainer > nav {
+        grid-area: srch;
+    }
+
+    main {
+        grid-area: main;
+        margin-left: 3%;
+    }
+
+    #featuredCourses  {
+        text-align: center;
+    }
+
+    #featuredCourseContainer {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2em;
+    }
+
+    #recentCourseContainer {
+        display: flex;
+        gap: 5%;
+        margin-bottom: 2%;
+    }
+
+    #recentlyUpdatedCourses {
+        margin-top: 5%;
+    }
 }
