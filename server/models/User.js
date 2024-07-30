@@ -19,7 +19,9 @@ const userSchema = new Schema({
     profileInfo: {
         type: [],
         default: []
-    }
+    },
+    //for hash of auth token
+    session: String
 })
 
 module.exports = mongoose.model("User", userSchema);

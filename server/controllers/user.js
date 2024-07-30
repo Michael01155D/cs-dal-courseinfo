@@ -1,6 +1,8 @@
 const userRouter = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const token = require('jsonwebtoken');
+require('dotenv').config();
 
 //create new user
 userRouter.post('/', async (req, res) => {
@@ -20,13 +22,28 @@ userRouter.post('/', async (req, res) => {
 
 })
 
+//login route
 userRouter.post('/login', async (req, res) => {
     const user = await User.findOne({username: req.body.username});
     const isValid = !user ? false : await bcrypt.compare(req.body.password, user.passwordHash);
     if (!isValid) {
         return res.status(401).json({error: "invalid username or password"});
     }
-    //todo add token or http cookie and give to logged in user
+    const authToken = token.sign(user.toJSON(), process.env.SECRET);
+    const salt = bcrypt.genSalt(10);
+    user.session = bcrypt.hash(authToken, salt);
+    res.status(200).send(user);
+})
+
+//when logging out, update user after removing session variable
+userRouter.put('/:id', async (req, res) => {
+    //TODO: be sure to test this using api-test
+    try {
+        const user = await User.findByIdAndUpdate(req.params.id, {...req.body.user, session: null}, {new: true});
+        res.json(user);
+    } catch (e) {
+        res.json(e);
+    }
 })
 
 userRouter.get('/:id', async (req, res) => {
