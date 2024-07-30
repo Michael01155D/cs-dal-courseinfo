@@ -12,8 +12,13 @@ const userSchema = new Schema({
         required: true
     },
     reviewsWritten: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Review"
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: "Review",
+        default: []
+    },
+    profileInfo: {
+        type: [],
+        default: []
     }
 })
 
