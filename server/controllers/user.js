@@ -4,9 +4,14 @@ const bcrypt = require('bcrypt');
 const token = require('jsonwebtoken');
 require('dotenv').config();
 
+userRouter.get('/', async (req, res) => {
+    const users = await User.find({});
+    res.json(users);
+})
+
 //create new user
 userRouter.post('/', async (req, res) => {
-    const salt = bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(10);
     const pw = req.body.password;
     if (!pw || pw.trim().length < 8) {
         return res.status(400).send({error: "Password must be at least 8 characters"});
@@ -30,8 +35,8 @@ userRouter.post('/login', async (req, res) => {
         return res.status(401).json({error: "invalid username or password"});
     }
     const authToken = token.sign(user.toJSON(), process.env.SECRET);
-    const salt = bcrypt.genSalt(10);
-    user.session = bcrypt.hash(authToken, salt);
+    const salt = await bcrypt.genSalt(10);
+    user.session = await bcrypt.hash(authToken, salt);
     res.status(200).send(user);
 })
 

@@ -10,7 +10,8 @@ reviewRouter.get('/', async (req, res) => {
 
 reviewRouter.get('/:id', async (req, res) => {
     try {
-        const review = await Review.findById(req.params.id).populate("course");
+        //todo: populate user as well
+        const review = await Review.findById(req.params.id).populate("course").populate("author");
         if (review) {
             res.status(200).json(review);
         } else {
@@ -37,10 +38,16 @@ reviewRouter.post('/', async (req, res) => {
     }
 })
 
+
+//update review
 reviewRouter.put('/:id', async (req, res) => {
     try {
         const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        if (updatedReview) { 
+        if (updatedReview) {
+            const courseReviewed = await Course.findById(req.body.courseId);
+            courseReviewed.reviews = courseReviewed.reviews.map(r => r._id == req.params.id ? updatedReview : r);
+            await courseReviewed.save();
+            //todo: update user's review arr as well 
             res.status(201).json(updatedReview);
         } else {
             res.status(404).end();

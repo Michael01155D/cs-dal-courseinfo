@@ -2,7 +2,7 @@ GET http://localhost:3000/reviews
 
 
 ###########
-GET http://localhost:3000/reviews
+GET http://localhost:3000/reviews/66aa7cb014b0439947139b25
 
 ##############
 POST http://localhost:3000/reviews
@@ -13,7 +13,7 @@ Content-Type: application/json
     "quality": 4,
     "difficulty": 2,
     "courseLoad": 1,
-    "courseId": "667870ffe3e0b8cc1f2c569a"
+    "courseId": "66aa72bebdf507873c1cce4c"
 }
 
 ##############

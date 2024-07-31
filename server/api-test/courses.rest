@@ -9,9 +9,9 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 4444",
-    "courseDescription": "toNotdelete",
-    "prerequisites": []
+    "courseCode": "CSCI 0010",
+    "courseDescription": "sequel to everything",
+    "prerequisites": ["66aa72bebdf507873c1cce4c"]
 }
 
 ##############
