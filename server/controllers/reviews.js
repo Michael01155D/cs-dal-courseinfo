@@ -4,7 +4,9 @@ const User = require('../models/User');
 const reviewRouter = require('express').Router();
 //todo: change populate("course") to populate("course").populate("user");
 reviewRouter.get('/', async (req, res) => {
-    const reviews = await Review.find({}).populate("course", {courseCode: 1, courseDescription: 1});
+    const reviews = await Review.find({})
+        .populate("course", {courseCode: 1, courseDescription: 1})
+        .populate("author", {username: 1});
     return res.status(200).json(reviews);
 })
 

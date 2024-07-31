@@ -13,7 +13,8 @@ Content-Type: application/json
     "quality": 4,
     "difficulty": 2,
     "courseLoad": 1,
-    "courseId": "66aa72bebdf507873c1cce4c"
+    "courseId": "66aa72bebdf507873c1cce4c",
+    "author": "66aa8d188aaa8b508892e746"
 }
 
 ##############
@@ -29,4 +30,4 @@ Content-Type: application/json
 }
 
 ##########
-DELETE http://localhost:3000/reviews/66786ab7236130ff978c994e
+DELETE http://localhost:3000/reviews/66aa7cb014b0439947139b25

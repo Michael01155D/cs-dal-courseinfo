@@ -12,16 +12,28 @@ courseRouter.get('/nuke', async (req, res) => {
 
 courseRouter.get('/', async (req, res) => {
     const courses = await Course.find({})
-    .populate("reviews", {_id: 1, content: 1, quality: 1, difficulty: 1, courseLoad: 1, created: 1})
-    .populate("prerequisites", {courseCode: 1, courseDescription: 1});
+    .populate({
+        path: 'reviews',
+        select: '_id content quality difficulty courseLoad author created',
+        populate: {
+            path: 'author',
+            select: 'username'
+        }
+    });
     res.status(200).json(courses);
 })
 
 courseRouter.get('/:id', async (req, res) => {
     try {
         const course = await Course.findById(req.params.id)
-        .populate("reviews", {_id: 1, content: 1, quality: 1, difficulty: 1, courseLoad: 1, created: 1})
-        .populate("prerequisites", {courseCode: 1, courseDescription: 1});
+        .populate({
+            path: 'reviews',
+            select: '_id content quality difficulty courseLoad author created',
+            populate: {
+                path: 'author',
+                select: 'username'
+            }
+        });
         if (course) {
             res.status(200).json(course);
         } else {
@@ -61,6 +73,7 @@ courseRouter.delete('/:id', async (req, res) => {
         if (courseToDelete.reviews.length > 0) {
             await Review.deleteMany({course: req.params.id});
         }
+        //if deleted course was a pre-req, remove it from those courses
         const hadAsPrereq = await Course.find({prerequisites: req.params.id});
         if (hadAsPrereq) {
             hadAsPrereq.prerequisites.filter(course => course.id != req.params.id);
