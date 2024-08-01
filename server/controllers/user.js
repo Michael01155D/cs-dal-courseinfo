@@ -49,10 +49,20 @@ userRouter.post('/login', async (req, res) => {
 })
 
 //when logging out, update user after removing session variable
-userRouter.put('/:id', async (req, res) => {
+userRouter.put('/logout/:id', async (req, res) => {
     //TODO: be sure to test this using api-test
     try {
         const user = await User.findByIdAndUpdate(req.params.id, {...req.body.user, session: null}, {new: true});
+        res.json(user);
+    } catch (e) {
+        res.json(e);
+    }
+})
+
+//for changing userName or updating profile info
+userRouter.put('/:id', async (req, res) => {
+    try {
+        const user = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.json(user);
     } catch (e) {
         res.json(e);

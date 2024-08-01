@@ -15,3 +15,13 @@ Content-Type: application/json
     "username": "sudo",
     "password": "password"
 }
+
+
+#############
+
+PUT http://localhost:3000/users/66aa8d188aaa8b508892e746
+Content-Type: application/json
+
+{
+    "username": "sudo"
+}

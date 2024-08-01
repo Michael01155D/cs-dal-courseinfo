@@ -15,12 +15,12 @@ Content-Type: application/json
 }
 
 ##############
-PUT http://localhost:3000/courses/6678645b7915040066b885a4
+PUT http://localhost:3000/courses/66aa72bebdf507873c1cce4c
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 0002",
-    "courseDescription": "seqUpdated",
+    "courseCode": "CSCI 0001",
+    "courseDescription": "testingUpdate",
     "prerequisites": []
 }
 
