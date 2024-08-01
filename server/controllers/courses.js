@@ -19,6 +19,10 @@ courseRouter.get('/', async (req, res) => {
             path: 'author',
             select: 'username'
         }
+    })
+    .populate({
+        path: 'prerequisites',
+        select: '_id courseCode courseDescription'
     });
     res.status(200).json(courses);
 })
@@ -33,6 +37,9 @@ courseRouter.get('/:id', async (req, res) => {
                 path: 'author',
                 select: 'username'
             }
+        }).populate({
+            path: 'prerequisites',
+            select: '_id courseCode courseDescription'
         });
         if (course) {
             res.status(200).json(course);

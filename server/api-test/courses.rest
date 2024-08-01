@@ -2,7 +2,7 @@ GET http://localhost:3000/courses
 
 
 ###########
-GET http://localhost:3000/courses/xxxxxxxxx
+GET http://localhost:3000/courses/66aa7319bdf507873c1cce4f
 
 ##############
 POST http://localhost:3000/courses
