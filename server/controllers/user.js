@@ -5,7 +5,15 @@ const token = require('jsonwebtoken');
 require('dotenv').config();
 
 userRouter.get('/', async (req, res) => {
-    const users = await User.find({});
+    const users = await User.find({})
+    .populate({
+        path: 'reviewsWritten',
+        select: 'content course quality difficulty courseLoad created',
+        populate: {
+            path: 'course',
+            select: 'courseCode courseDescription'
+        }
+    });
     res.json(users);
 })
 
@@ -53,7 +61,14 @@ userRouter.put('/:id', async (req, res) => {
 
 userRouter.get('/:id', async (req, res) => {
     try {
-        const user = await User.findById(req.params.id)
+        const user = await User.findById(req.params.id).populate({
+            path: 'reviewsWritten',
+            select: 'content course quality difficulty courseLoad created',
+            populate: {
+                path: 'course',
+                select: 'courseCode courseDescription'
+            }
+        });
         res.json(user);
     } catch (e) {
         res.json(e);

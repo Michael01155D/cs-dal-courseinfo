@@ -9,10 +9,10 @@ POST http://localhost:3000/reviews
 Content-Type: application/json
 
 {
-    "content": "should be deleted",
+    "content": "testing",
     "quality": 4,
-    "difficulty": 2,
-    "courseLoad": 1,
+    "difficulty": 4,
+    "courseLoad": 4,
     "courseId": "66aa72bebdf507873c1cce4c",
     "author": "66aa8d188aaa8b508892e746"
 }
@@ -30,4 +30,4 @@ Content-Type: application/json
 }
 
 ##########
-DELETE http://localhost:3000/reviews/66aa7cb014b0439947139b25
+DELETE http://localhost:3000/reviews/66abee6cf265b05cf0582888
