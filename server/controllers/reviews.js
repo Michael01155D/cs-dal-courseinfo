@@ -52,7 +52,7 @@ reviewRouter.put('/:id', async (req, res) => {
             const courseReviewed = await Course.findById(req.body.courseId);
             courseReviewed.reviews = courseReviewed.reviews.map(r => r._id == req.params.id ? updatedReview : r);
             await courseReviewed.save();
-            //todo: update user's review arr as well 
+            //todo: update user's review arr as wellif necessary?
             res.status(201).json(updatedReview);
         } else {
             res.status(404).end();
@@ -64,11 +64,15 @@ reviewRouter.put('/:id', async (req, res) => {
 
 reviewRouter.delete('/:id', async (req, res) => {
     try {
+        //first, delete the review reference from Course and User.
         const courseReviewed = await Course.findOne({reviews: req.params.id});
         console.log('courseReviewed is: ', courseReviewed);
         courseReviewed.reviews = courseReviewed.reviews.filter(r => r.toString() !== req.params.id);
         console.log('after filter courseReviewed is', courseReviewed);
         await courseReviewed.save();
+        const reviewAuthor = await User.findOne({reviewsWritten: req.params.id});
+        reviewAuthor.reviewsWritten = reviewAuthor.reviewsWritten.filter(r => r.toString() !== req.params.id);
+        await reviewAuthor.save();
         await Review.findByIdAndDelete(req.params.id);
         res.status(204).end();
     } catch (exception) {

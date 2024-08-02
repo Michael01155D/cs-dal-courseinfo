@@ -22,7 +22,7 @@ Content-Type: application/json
 {
     "courseCode": "CSCI 0010",
     "courseDescription": "sequel to everything",
-    "prerequisites": ["66ad41824c9f618cafef3e1a"]
+    "prerequisites": ["66ad4f2a60c4ebd1a5c2c526"]
 }
 
 ##############
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ##########
-DELETE http://localhost:3000/courses/667870ffe3e0b8cc1f2c569a
+DELETE http://localhost:3000/courses/xxxx
 
 ##### delete all
 GET http://localhost:3000/courses/nuke
