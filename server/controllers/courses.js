@@ -81,6 +81,7 @@ courseRouter.delete('/:id', async (req, res) => {
             await Review.deleteMany({course: req.params.id});
         }
         //if deleted course was a pre-req, remove it from those courses
+        //TODO: TEST THIS WHEN COURSE IS PRE-REQ FOR MULTIPLE COURSES!! (CLOG hasAsPrereq to see if 1 or more than 1)
         const hadAsPrereq = await Course.find({prerequisites: req.params.id});
         if (hadAsPrereq) {
             hadAsPrereq.prerequisites.filter(course => course.id != req.params.id);

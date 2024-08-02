@@ -4,6 +4,17 @@ GET http://localhost:3000/courses
 ###########
 GET http://localhost:3000/courses/66aa7319bdf507873c1cce4f
 
+
+###############
+
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+    "courseCode": "CSCI 0001",
+    "courseDescription": "intro to everything"
+}
+
 ##############
 POST http://localhost:3000/courses
 Content-Type: application/json
@@ -11,7 +22,7 @@ Content-Type: application/json
 {
     "courseCode": "CSCI 0010",
     "courseDescription": "sequel to everything",
-    "prerequisites": ["66aa72bebdf507873c1cce4c"]
+    "prerequisites": ["66ad41824c9f618cafef3e1a"]
 }
 
 ##############

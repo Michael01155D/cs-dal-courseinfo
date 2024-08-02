@@ -24,7 +24,6 @@ reviewRouter.get('/:id', async (req, res) => {
 })
 
 
-//TODO: once users are implemented, add: reference to User, then set author: user._id before saving review, then update user's reviews
 reviewRouter.post('/', async (req, res) => {
 
     try {
@@ -65,9 +64,15 @@ reviewRouter.put('/:id', async (req, res) => {
 
 reviewRouter.delete('/:id', async (req, res) => {
     try {
+        const courseReviewed = await Course.findOne({reviews: req.params.id});
+        console.log('courseReviewed is: ', courseReviewed);
+        courseReviewed.reviews = courseReviewed.reviews.filter(r => r.toString() !== req.params.id);
+        console.log('after filter courseReviewed is', courseReviewed);
+        await courseReviewed.save();
         await Review.findByIdAndDelete(req.params.id);
         res.status(204).end();
     } catch (exception) {
+        console.log('exception is:', exception);
         res.status(500).json(exception);
     }
 })
