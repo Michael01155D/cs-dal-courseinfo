@@ -7,15 +7,16 @@ while planning their course selection.
 ****TODOS****
 
 Frontend: 
--Design a professional-looking layout
--Implement the design in HTML/CSS
+~~-Design a decent-looking layout~~
+~~-Implement the design in HTML/CSS~~
 -Use React Components to display content and React Router for navigation
 
 
 Backend:
 ~~-Create Server using Express~~
 ~~-Create MongoDB cluster, connect it to express server.~~
--Create Mongo schema&models for Courses, users, and reviews (Courses -> Reviews One to many)
--Create REST API routes for CRUD operations.
+~~Create Mongo schema&models for Courses, users, and reviews (Courses -> Reviews One to many)~~
+-Create REST API routes for CRUD operations. **in progress: currently making sure course/review/user post/delete/put are handled properly
+
 -Implement User Authentication
 -Implement Admin user type for add/delete/editing Courses, banning users, full access to all reviews. 
