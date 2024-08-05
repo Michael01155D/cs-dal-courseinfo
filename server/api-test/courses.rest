@@ -2,7 +2,7 @@ GET http://localhost:3000/courses
 
 
 ###########
-GET http://localhost:3000/courses/66aa7319bdf507873c1cce4f
+GET http://localhost:3000/courses/66ad4f2a60c4ebd1a5c2c526
 
 
 ###############
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 ##############
-PUT http://localhost:3000/courses/66aa72bebdf507873c1cce4c
+PUT http://localhost:3000/courses/66ad4f2a60c4ebd1a5c2c526
 Content-Type: application/json
 
 {

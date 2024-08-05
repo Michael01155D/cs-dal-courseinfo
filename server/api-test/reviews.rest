@@ -18,15 +18,11 @@ Content-Type: application/json
 }
 
 ##############
-PUT http://localhost:3000/reviews/6678692e9bacf2d29119253d
+PUT http://localhost:3000/reviews/66b10940f72c890e0f3b7b9e
 Content-Type: application/json
 
 {
-    "content": "updated before deleting...",
-    "quality": 4,
-    "difficulty": 1,
-    "courseLoad": 1,
-    "courseId": "6678688d84325796311b3691"
+    "content": "updated the review",
 }
 
 ##########

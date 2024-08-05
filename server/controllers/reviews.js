@@ -48,15 +48,8 @@ reviewRouter.post('/', async (req, res) => {
 reviewRouter.put('/:id', async (req, res) => {
     try {
         const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        if (updatedReview) {
-            const courseReviewed = await Course.findById(req.body.courseId);
-            courseReviewed.reviews = courseReviewed.reviews.map(r => r._id == req.params.id ? updatedReview : r);
-            await courseReviewed.save();
-            //todo: update user's review arr as wellif necessary?
-            res.status(201).json(updatedReview);
-        } else {
-            res.status(404).end();
-    } } catch (exception) {
+        res.status(201).json(updatedReview);
+    } catch (exception) {
         res.status(500).json(exception);
     }
 })
