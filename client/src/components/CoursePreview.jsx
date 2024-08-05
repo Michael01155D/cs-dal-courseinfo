@@ -1,6 +1,7 @@
 import '../styles/CoursePreview.css';
 
-const CoursePreview = () => {
+const CoursePreview = ({course}) => {
+    //todo: give each CoursePreview a Link to the CourseDetails component
     return (
         <div className="coursePreview">
             <p>Title</p>

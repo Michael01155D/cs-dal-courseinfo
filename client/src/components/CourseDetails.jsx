@@ -1,7 +1,7 @@
-const CourseDetails = () => {
+const CourseDetails = ( {course} ) => {
     return(
         <>
-        Course Details here
+        Single page view for course here
         </>
     )
 }
