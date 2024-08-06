@@ -1,17 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/CoursesList.css';
 import CoursePreview from './CoursePreview';
 import { Link } from 'react-router-dom';
-import SearchFilters from './SearchFilters';
+import  SearchFilters, {applyFilters} from './SearchFilters';
+import 
 
 const CoursesList = ({courses}) => {
     const [query, setQuery] = useState('');
-    const [showFilters, setShowFilters] = useState(true);
     const [checkedBoxes, setCheckedBoxes] = useState([]);
     //todo: once course objs are added, render them using filter
     const [filteredCourses, setFilteredCourses] = useState([]);
-    //use this to filter courses
-    console.log("in CoursesList checkedBoxes are: ", checkedBoxes)
+    
+    useEffect(() => {
+        //first filter by searchbar query, then apply checkboxes (if any)
+        const queryFilter = courses.filter(
+            course => course.courseCode.includes(query.trim()) 
+            || course.courseDescription.includes(query.trim())
+        )   
+        if (checkedBoxes.length > 0) {
+            queryFilter = applyFilters(queryFilter);
+        }
+        setFilteredCourses(queryFilter);
+
+    }, [query, checkedBoxes])
+    console.log("checkedboxes in courseList page is", checkedBoxes)
     return(
         <div id='coursesListContainer'>
             <header>
@@ -40,9 +52,11 @@ const CoursesList = ({courses}) => {
                 </section>
             </section>
             <section id='courseSection'>
-                <h4>Displaying (filtered arr.length) out of {courses.length} Courses</h4>
+                <h4>Displaying {filteredCourses.length} out of {courses.length} Courses</h4>
                 <div id='courseGrid'>
-                    {courses.map(course => <CoursePreview key={course._id} course={course}/>)}
+                    {
+                    filteredCourses.map(course => <CoursePreview key={course._id} course={course}/>)
+                    }
                 </div>
             </section>
         </div>
