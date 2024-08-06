@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 const coursesRouter = require('./controllers/courses');
 const reviewRouter = require('./controllers/reviews');
 const userRouter = require('./controllers/user');
+const cors = require('cors');
 dotenv.config();
 const MONGO_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT;
 const server = express();
 
+server.use(cors());
 server.use(express.json());
 server.use("/courses", coursesRouter);
 server.use("/reviews", reviewRouter);

@@ -14,7 +14,7 @@ courseRouter.get('/', async (req, res) => {
     const courses = await Course.find({})
     .populate({
         path: 'reviews',
-        select: '_id content quality difficulty courseLoad author created',
+        select: '_id content quality difficulty courseLoad author createdAt',
         populate: {
             path: 'author',
             select: 'username'
@@ -32,7 +32,7 @@ courseRouter.get('/:id', async (req, res) => {
         const course = await Course.findById(req.params.id)
         .populate({
             path: 'reviews',
-            select: '_id content quality difficulty courseLoad author created',
+            select: '_id content quality difficulty courseLoad author createdAt',
             populate: {
                 path: 'author',
                 select: 'username'

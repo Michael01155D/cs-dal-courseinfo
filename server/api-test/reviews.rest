@@ -9,9 +9,9 @@ POST http://localhost:3000/reviews
 Content-Type: application/json
 
 {
-    "content": "pay attn to this one",
+    "content": "newest review",
     "quality": 4,
-    "difficulty": 4,
+    "difficulty": 2,
     "courseLoad": 4,
     "courseId": "66ad4f2a60c4ebd1a5c2c526",
     "author": "66aa8d188aaa8b508892e746"
@@ -26,4 +26,19 @@ Content-Type: application/json
 }
 
 ##########
-DELETE http://localhost:3000/reviews/66ad4fd060c4ebd1a5c2c52d
+DELETE http://localhost:3000/reviews/66b1649408980f3eddf2c6de
+
+
+######
+//review for 2nd course
+POST http://localhost:3000/reviews
+Content-Type: application/json
+
+{
+    "content": "adding 2nd review to break the tie :)",
+    "quality": 4,
+    "difficulty": 4,
+    "courseLoad": 4,
+    "courseId": "66ad4f3160c4ebd1a5c2c528",
+    "author": "66aa8d188aaa8b508892e746"
+}

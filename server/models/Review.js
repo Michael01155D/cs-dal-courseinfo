@@ -5,7 +5,7 @@ const reviewSchema = new Schema({
     content: {
         type: String,
         required: true,
-        maxLength: 500 //??? 
+        maxLength: 750 //??? 
     },
     course: {
         type: mongoose.Schema.Types.ObjectId,
@@ -35,10 +35,6 @@ const reviewSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    created: {
-        type: Date,
-        default: Date.now,
-    },
-})
+}, {timestamps: true})
 
 module.exports = mongoose.model("Review", reviewSchema);
