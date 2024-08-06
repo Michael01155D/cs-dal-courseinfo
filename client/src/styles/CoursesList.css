@@ -8,7 +8,6 @@
 
 #searchBar {
 text-align: center;
-margin-bottom: 5%;
 }
 
 #searchInput {
@@ -18,8 +17,9 @@ margin-bottom: 5%;
   border: 2px solid gainsboro;
 }
 
-#searchFilters {
-align-self: center;
+#courseListFilters {
+  width: 50%;
+  margin: auto;
 }
 
 #searchFilters > button {
@@ -79,7 +79,7 @@ background-color: rgba(173, 216, 230, 0.509);
 
 /* desktop view: */
 
-@media only screen and (min-width: 845px) {
+@media only screen and (min-width: 910px) {
 
   #coursesListContainer{
       min-height: 80vh;
@@ -88,20 +88,22 @@ background-color: rgba(173, 216, 230, 0.509);
       column-gap: 10%;
       grid-template-columns: .5fr 1fr .8fr;
       grid-template-areas:
-      ". title title ."
-      "byYear srchBar filters ."
-      "byYear courses . ."
-      ". courses . ."
+      ". title ."
+      "byYear srch srch "
+      "byYear courses . "
+      ". courses . "
       ;
   }
 
-  #coursesListContainer > header {
-    grid-column-start: 1;
+  #courseListFilters {
+    width: 100%;
   }
-  #searchBar {
-    grid-area: srchBar;
-    text-align: center;
-    margin-bottom: 5%;
+
+  #searchSection {
+    grid-area: srch;
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
   }
 
   #searchInput {
@@ -111,9 +113,10 @@ background-color: rgba(173, 216, 230, 0.509);
       border: 2px solid gainsboro;
   }
 
-  #searchFilters {
-    grid-area: filters;
-    align-self: center;
+  .checkBox {
+    display: flex;
+    align-items: center;
+    padding: auto;
   }
 
   #searchFilters > button {

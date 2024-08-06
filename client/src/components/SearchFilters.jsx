@@ -28,7 +28,6 @@ const SearchFilters = ({searchType, checkedBoxes, setCheckedBoxes}) => {
                 <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year2' text='Second Year'/>
                 <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year3' text='Third Year'/>
                 <Checkbox checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes} idName='year4' text='Fourth Year'/>
-
             </section>
         )
     }

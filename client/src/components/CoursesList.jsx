@@ -25,20 +25,20 @@ const CoursesList = ({courses}) => {
                 <Link id='thirdYearLink' to={"/courses/year/third"}>Third Year</Link>
                 <Link id='fourthYearLink'to={"/courses/year/fourth"}>Fourth Year</Link>
             </section>
-            <section id='searchBar'>
-                <h3>Browse Through All Courses</h3>
-                <label  className='visuallyHidden' htmlFor='searchInput'>Search</label>
-                <input type='text' id='searchInput' name='searchInput'
-                    placeholder='Course Name or Code'
-                    onChange={(e) => setQuery(e.target.value)}
-                    />
-            </section>
-            <section id='searchFilters'>
-                { showFilters ?
-                    <SearchFilters searchType='searchBar' checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes}/> : <></>
-                }
-                <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Hide Filters" : "Display Filters"}</button>
+            <section id='searchSection'>
+                <section id='searchBar'>
+                    <h3>Browse Through All Courses</h3>
+                    <label  className='visuallyHidden' htmlFor='searchInput'>Search</label>
+                    <input type='text' id='searchInput' name='searchInput'
+                        placeholder='Course Name or Code'
+                        onChange={(e) => setQuery(e.target.value)}
+                        />
                 </section>
+                <section id='searchFilters'>
+                    <p>Search Filters (optional)</p>
+                    <SearchFilters searchType='searchBar' checkedBoxes={checkedBoxes} setCheckedBoxes={setCheckedBoxes}/>
+                </section>
+            </section>
             <section id='courseSection'>
                 <h4>Displaying (filtered arr.length) out of {courses.length} Courses</h4>
                 <div id='courseGrid'>

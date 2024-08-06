@@ -73,7 +73,7 @@ courseRouter.put('/:id', async (req, res) => {
     }
 })
 
-//todo: all deleted course reviews are deleted from their author user as well
+
 courseRouter.delete('/:id', async (req, res) => {
     try {
         const courseToDelete = await Course.findByIdAndDelete(req.params.id);
@@ -81,7 +81,6 @@ courseRouter.delete('/:id', async (req, res) => {
             await Review.deleteMany({course: req.params.id});
         }
         //if deleted course was a pre-req, remove it from those courses
-        //TODO: TEST THIS WHEN COURSE IS PRE-REQ FOR MULTIPLE COURSES!! (CLOG hasAsPrereq to see if 1 or more than 1)
         const hadAsPrereq = await Course.find({prerequisites: req.params.id});
         if (hadAsPrereq) {
             const promises = [];
@@ -89,9 +88,8 @@ courseRouter.delete('/:id', async (req, res) => {
                 course.prerequisites = course.prerequisites.filter(p => p.toString() !== req.params.id);
                 promises.push(course.save());
             })
+            //resolve all promises
             await Promise.all(promises);
-            // hadAsPrereq.prerequisites.filter(course => course.id != req.params.id);
-            // await hadAsPrereq.save();
         }
         
         res.status(204).end();
