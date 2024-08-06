@@ -1,6 +1,13 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import '../styles/Layout.css';
 const Layout = () => {
+
+    const pathName  = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathName])
+
     return(
         <div id="layoutContainer">
             <header>

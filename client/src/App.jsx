@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Router } from 'react-router-dom';
 import './styles/App.css';
 import Layout from './components/Layout';
 import LoginPage from './components/LoginPage';
@@ -32,21 +32,23 @@ function App() {
   }
   
   return (
-  <BrowserRouter>
+    <>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<HomePage courses={courses}/>} /> 
-          <Route path="/login" element={<LoginPage />}/>
-          <Route path="/signUp" element={<SignUpPage />} />
-          <Route path="/userProfile" element={<UserProfile/>}/>
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/courses" element={<CoursesList courses={courses}/>} />
-          <Route path="/courses/:id" element={<CourseDetails />} />
-          <Route path="/courses/year/:year" element={<CoursesByYear />} />
-          <Route path="*" element={<NotFoundPage/>} />
-        </Route>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<HomePage courses={courses}/>} /> 
+            <Route path="/login" element={<LoginPage />}/>
+            <Route path="/signUp" element={<SignUpPage />} />
+            <Route path="/userProfile" element={<UserProfile/>}/>
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/courses" element={<CoursesList courses={courses}/>} />
+            <Route path="/courses/:id" element={<CourseDetails />} />
+            <Route path="/courses/year/:year" element={<CoursesByYear />} />
+            <Route path="*" element={<NotFoundPage/>} />
+          </Route>
       </Routes>
     </BrowserRouter>
+    </>
   )
 }
 
