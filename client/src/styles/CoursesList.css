@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+#coursesListContainer > header {
+  grid-area: title;
+}
+
 #searchBar {
 text-align: center;
 }

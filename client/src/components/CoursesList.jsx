@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../styles/CoursesList.css';
 import CoursePreview from './CoursePreview';
 import { Link } from 'react-router-dom';
-import  SearchFilters, {applyFilters} from './SearchFilters';
+import  SearchFilters from './SearchFilters';
 
 const CoursesList = ({courses}) => {
     const [query, setQuery] = useState('');

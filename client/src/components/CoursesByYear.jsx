@@ -1,10 +1,11 @@
 import { useParams, useLocation } from "react-router-dom"
 import '../styles/CoursesByYear.css'
 import { useEffect, useState } from "react";
+import CoursePreview from "./CoursePreview";
 
 const CoursesByYear = () => {
     const { state } = useLocation();
-    console.log('in coursesby year, state is ', state);
+    const courses = state.courseData;
     const { year } = useParams();
     const [yearInfo, setYearInfo] = useState();
     const [yearBgColor, setYearBgColor] = useState("white");
@@ -34,7 +35,7 @@ const CoursesByYear = () => {
 
     return(
         <>
-            <header>
+            <header id='byYearHeader'>
                 <h2>{year[0].toUpperCase() + year.substring(1)}-Year Courses</h2>
             </header>
             <main id='byYearContainer'>
@@ -42,7 +43,14 @@ const CoursesByYear = () => {
                     {yearInfo}
                 </aside>
                 <section id='yearCoursesList'>
-                    <p>this is where filtered courses obj will be mapped to display each course</p>
+                    <>
+                    { 
+                        courses.length > 0 ?
+                            courses.map(course => <CoursePreview key={course._id} course={course}/>)
+                            :
+                            <p>No {year[0].toUpperCase() + year.substring(1)} Year Courses found :(</p>
+                    }   
+                    </>
                 </section>
             </main>
         </>

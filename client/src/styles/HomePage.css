@@ -50,7 +50,7 @@
         ".  main main .";
     }
 
-    header {
+    #homeContainer > header {
         grid-area: title;
         text-align: center;
     }
