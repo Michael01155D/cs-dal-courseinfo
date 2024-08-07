@@ -1,11 +1,14 @@
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import '../styles/CoursesByYear.css'
 import { useEffect, useState } from "react";
 
 const CoursesByYear = () => {
+    const { state } = useLocation();
+    console.log('in coursesby year, state is ', state);
     const { year } = useParams();
     const [yearInfo, setYearInfo] = useState();
     const [yearBgColor, setYearBgColor] = useState("white");
+
     useEffect(() => {
         switch(year) {
             case "first": 

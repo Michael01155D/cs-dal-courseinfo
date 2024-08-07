@@ -3,14 +3,20 @@ import '../styles/CoursesList.css';
 import CoursePreview from './CoursePreview';
 import { Link } from 'react-router-dom';
 import  SearchFilters, {applyFilters} from './SearchFilters';
-import 
 
 const CoursesList = ({courses}) => {
     const [query, setQuery] = useState('');
     const [checkedBoxes, setCheckedBoxes] = useState([]);
     //todo: once course objs are added, render them using filter
     const [filteredCourses, setFilteredCourses] = useState([]);
-    
+        //filter courseList based on checkedBoxes
+    const applyFilters = () => {
+        let filterInProgress = courses;
+        if (checkedBoxes.includes("bcs")) {
+            filterInProgress = filterInProgress.filter();
+        }
+    }
+
     useEffect(() => {
         //first filter by searchbar query, then apply checkboxes (if any)
         const queryFilter = courses.filter(
@@ -18,6 +24,7 @@ const CoursesList = ({courses}) => {
             || course.courseDescription.includes(query.trim())
         )   
         if (checkedBoxes.length > 0) {
+            //todo: implement applyFilters
             queryFilter = applyFilters(queryFilter);
         }
         setFilteredCourses(queryFilter);
@@ -31,11 +38,34 @@ const CoursesList = ({courses}) => {
             </header>
             <section id="browseByYear">
                 <h4>Browse Courses by Year</h4>
-                {/* todo: add filtered courses as prop for each Link*/}
-                <Link id='firstYearLink' to={"/courses/year/first"}>First Year</Link>
-                <Link id='secondYearLink'to={"/courses/year/second"}>Second Year</Link>
-                <Link id='thirdYearLink' to={"/courses/year/third"}>Third Year</Link>
-                <Link id='fourthYearLink'to={"/courses/year/fourth"}>Fourth Year</Link>
+                <Link 
+                    id='firstYearLink' 
+                    to={"/courses/year/first"} 
+                    state={{courseData: courses.filter(course => course.year == 1) }}
+                >
+                    First Year
+                </Link>
+                <Link 
+                    id='secondYearLink' 
+                    to={"/courses/year/second"} 
+                    state={ {courseData: courses.filter(course => course.year == 2) } }
+                >
+                    Second Year
+                </Link>
+                <Link 
+                    id='thirdYearLink' 
+                    to={"/courses/year/third"} 
+                    state={ {courseData: courses.filter(course => course.year == 3)} }
+                >
+                    Third Year
+                </Link>
+                <Link 
+                    id='fourthYearLink' 
+                    to={"/courses/year/fourth"} 
+                    state={{courseData: courses.filter(course => course.year == 4) }}
+                >
+                    Fourth Year
+                </Link>
             </section>
             <section id='searchSection'>
                 <section id='searchBar'>

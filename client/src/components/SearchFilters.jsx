@@ -3,13 +3,6 @@ import Checkbox from './Checkbox';
 
 const SearchFilters = ({searchType, checkedBoxes, setCheckedBoxes}) => {
 
-    //filter courseList based on checkedBoxes
-    export const applyFilters = (courses) => {
-        let filterInProgress = courses;
-        if (checkedBoxes.includes("bcs") {
-            filterInProgress = filterInProgress.filter()
-        })
-    }
     //dont need to pass checkedBoxes/setCheckedBoxes props if this component is used in form
     if (searchType == "form") {
         return(

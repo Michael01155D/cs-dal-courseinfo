@@ -14,6 +14,10 @@ const courseSchema = new Schema({
         type: String,
         required: true
     },
+    year: {
+        type: Number,
+        required: true
+    },
     prerequisites: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course"
