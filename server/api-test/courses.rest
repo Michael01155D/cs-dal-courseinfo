@@ -12,7 +12,10 @@ Content-Type: application/json
 
 {
     "courseCode": "CSCI 0001",
-    "courseDescription": "intro to everything"
+    "courseDescription": "intro to everything",
+    "year": 1,
+    "bcsRequirement": true,
+    "bacsRequirement": true
 }
 
 ##############
@@ -22,7 +25,10 @@ Content-Type: application/json
 {
     "courseCode": "CSCI 0010",
     "courseDescription": "sequel to everything",
-    "prerequisites": ["66ad4f2a60c4ebd1a5c2c526"]
+    "year": 1,
+    "prerequisites": ["66b7c04129a4eda3a8089e07"],
+    "bcsRequirement": true,
+    "bacsRequirement": false
 }
 
 ##############

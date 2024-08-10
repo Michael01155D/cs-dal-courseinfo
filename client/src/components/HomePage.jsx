@@ -59,7 +59,7 @@ const HomePage = ({courses}) => {
             <nav>
                 <CourseSearcher/>
             </nav>
-            <main>
+            <main id="contentContainer">
                 <section id="featuredCourses">
                     <h3>Featured Courses</h3>
                     <div id="featuredCourseContainer">

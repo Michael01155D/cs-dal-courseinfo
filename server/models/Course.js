@@ -22,7 +22,12 @@ const courseSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course"
     }],
-    degreeRequirement: {
+    bcsRequirement: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    bacsRequirement: {
         type: Boolean,
         required: true,
         default: false
@@ -52,15 +57,7 @@ const courseSchema = new Schema({
     scienceWithLabElective: {
         type: Boolean,
         default: false
-    },
-    beseElective: {
-        type: Boolean,
-        default: false
-    },
-    socialScienceElective: {
-        type: Boolean,
-        default: false
-    },
+    }
 })
 
 module.exports = mongoose.model("Course", courseSchema);

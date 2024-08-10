@@ -9,26 +9,64 @@ const CoursesList = ({courses}) => {
     const [checkedBoxes, setCheckedBoxes] = useState([]);
     //todo: once course objs are added, render them using filter
     const [filteredCourses, setFilteredCourses] = useState([]);
+
         //filter courseList based on checkedBoxes
     const applyFilters = () => {
-        let filterInProgress = courses;
-        if (checkedBoxes.includes("bcs")) {
-            filterInProgress = filterInProgress.filter();
+        let filterInProgress = [];
+        if (checkedBoxes.includes("year1")) {
+            filterInProgress = filterInProgress.filter(c => c.year == 1);
         }
+        if (checkedBoxes.includes("year2")) {
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 2));
+        }
+        if (checkedBoxes.includes("year3")) {
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 3));
+        }
+        if (checkedBoxes.includes("year4")) {
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 4));
+        }
+        if (checkedBoxes.includes("bacs")) {
+            filterInProgress = filterInProgress.concat(
+                courses.filter(c => c.bacsRequirement == true && !filterInProgress.includes(c)));
+        }
+        if (checkedBoxes.includes("bcs")) {
+            filterInProgress = filterInProgress.concat(
+                courses.filter(c => c.bcsRequirement == true && !filterInProgress.includes(c)));
+        }
+        if (checkedBoxes.includes("elective")) {
+            filterInProgress = filterInProgress.concat(
+                courses.filter(c => c.bacsRequirement == false 
+                    && c.bcsRequirement == false 
+                    && !filterInProgress.includes(c)))
+        }
+        if (checkedBoxes.includes("co-op")) {
+            filterInProgress = filterInProgress.concat(
+                courses.filter(c => c.coopRequirement == true && !filterInProgress.includes(c)));
+        }
+        return filterInProgress;
     }
 
     useEffect(() => {
-        //first filter by searchbar query, then apply checkboxes (if any)
-        const queryFilter = courses.filter(
-            course => course.courseCode.includes(query.trim()) 
-            || course.courseDescription.includes(query.trim())
-        )   
+        //apply query and checkbox filters to course list if any
+        if (query.length == 0 && checkedBoxes.length == 0) {
+            setFilteredCourses(courses);
+            return;
+        }
+        let queryFilter = [];
         if (checkedBoxes.length > 0) {
-            //todo: implement applyFilters
-            queryFilter = applyFilters(queryFilter);
+            queryFilter = applyFilters();
+        }
+
+        if (query.length > 0) {
+            queryFilter.concat(
+                courses.filter(
+                    c => c.courseCode.includes(query.trim())
+                    || c.courseDescription.includes(query.trim())
+                )
+            )
         }
         setFilteredCourses(queryFilter);
-
+        console.log("after applying all filters, filteredCourses is ", filteredCourses)
     }, [query, checkedBoxes])
     console.log("checkedboxes in courseList page is", checkedBoxes)
     return(
