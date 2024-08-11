@@ -23,6 +23,13 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     gap: 1em;
+    justify-content: center;
+    align-content: center;
+}
+
+#featuredCourseContainer > .coursePreviewContainer {
+    align-self: center;
+    justify-self: center;
 }
 
 #recentlyUpdatedCourses {
@@ -38,10 +45,17 @@
 #recentCourseContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 5%;
     margin-bottom: 2%;
 }
 
+@media only screen and (max-width: 525px) {
+    #featuredCourseContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 
 /*desktop layout:*/
@@ -84,12 +98,14 @@
 
     #recentCourseContainer {
         display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
         gap: 5%;
         margin-bottom: 2%;
     }
 
     #recentlyUpdatedCourses {
         margin: auto;
-        width: 50%;
     }
 }

@@ -1,9 +1,9 @@
-#coursePreviewContainer {
+.coursePreviewContainer {
     border: 0.1px solid black;
     border-radius: 8%;
     text-align: center;
     height: 20em;
-    max-width: 20em;
+    width: 15em;
 }
 
 #courseTags {

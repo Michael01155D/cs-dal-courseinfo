@@ -53,16 +53,16 @@ const CoursePreview = ({course}) => {
     }, [])
 
     const avgDifficulty = course.reviews.length > 0 ? 
-        course.reviews.map(r => r.difficulty).reduce((prev, cur) => prev += cur, 0) / course.reviews.length
+        course.reviews.map(r => r.difficulty).reduce((prev, cur) => prev += cur, 0) / course.reviews.length + "/5"
         :
-        "No Ratings yet"
+        "No Ratings"
 
     return (
-        <section id='coursePreviewContainer'>
+        <section className='coursePreviewContainer'>
             <Link className="coursePreview" to={`/courses/${course._id}`}>
                 <p>{course.courseCode}</p>
                 <p>{course.courseDescription}</p>
-                <p> avg difficulty rating: {avgDifficulty} </p>
+                <p> difficulty: {avgDifficulty} </p>
             </Link>
             <section id='courseTags'>
                 {tags.map(tag => <div  key={tag} className='tag'> {tag} </div>)}
