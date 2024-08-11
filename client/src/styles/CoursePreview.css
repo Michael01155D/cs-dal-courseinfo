@@ -1,4 +1,26 @@
-.coursePreview {
+#coursePreviewContainer {
     border: 0.1px solid black;
+    border-radius: 8%;
+    text-align: center;
+    height: 20em;
+    max-width: 20em;
+}
+
+#courseTags {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 50%;
+    padding-bottom: 20%;
+}
+
+.tag {
+    height: 150%;
+    min-width: fit-content;
+    padding: 2% 5%;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    font-size: small;
     text-align: center;
 }

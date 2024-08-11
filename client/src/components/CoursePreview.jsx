@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import '../styles/CoursePreview.css';
 import {Link} from 'react-router-dom';
 
+
 const CoursePreview = ({course}) => {
     //todo: add styling for tags
     const [tags, setTags] = useState([]);
+    const [tagBgIndex, setTagBgIndex] = useState(0);
+
+    const tagBackgrounds = ["lightblue", "lightgreen", "lightred", "lightyellow"];
     useEffect(() => {
         let tagsToAdd = [];
         switch(course.year) {
@@ -52,19 +56,20 @@ const CoursePreview = ({course}) => {
         course.reviews.map(r => r.difficulty).reduce((prev, cur) => prev += cur, 0) / course.reviews.length
         :
         "No Ratings yet"
+
     return (
-        <Link className="coursePreview" to={`/courses/${course._id}`}>
-            <p>{course.courseCode}</p>
-            <p>{course.courseDescription}</p>
-            <p>
-                avg difficulty rating: {avgDifficulty}
-            </p>
-            
+        <section id='coursePreviewContainer'>
+            <Link className="coursePreview" to={`/courses/${course._id}`}>
+                <p>{course.courseCode}</p>
+                <p>{course.courseDescription}</p>
+                <p> avg difficulty rating: {avgDifficulty} </p>
+            </Link>
             <section id='courseTags'>
-                <p>tags: (Will add styling soon)</p>
-                {tags.map(tag => <div  key={tag} className='tag'> {tag} </div>)}</section>
-        </Link>
+                {tags.map(tag => <div  key={tag} className='tag'> {tag} </div>)}
+            </section>
+        </section>
     )
 }
+
 
 export default CoursePreview;

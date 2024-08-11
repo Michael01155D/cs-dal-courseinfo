@@ -41,6 +41,25 @@
         color: white;
     }
 
+    #navBar > ul > li > a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1em;
+        background-color: #535bf2;
+        opacity: 0;
+        transition: opacity 300ms, transform 300ms;
+        transform: translate3d(-20%, 0, 0);
+      }
+      
+      #navBar > ul > li > a:hover::after,
+      #navBar > ul > li > a:focus::after {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
     #footer {
         max-width: 100%;
         background-color: black;
