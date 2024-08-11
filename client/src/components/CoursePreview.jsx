@@ -11,7 +11,7 @@ const CoursePreview = ({course}) => {
             case 1:
                 tagsToAdd.push("First Year");
                 break;
-            case 1:
+            case 2:
                 tagsToAdd.push("Second Year");
                 break;
             case 3:
