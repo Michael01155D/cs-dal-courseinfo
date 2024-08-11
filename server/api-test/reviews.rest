@@ -9,11 +9,11 @@ POST http://localhost:3000/reviews
 Content-Type: application/json
 
 {
-    "content": "newest review",
+    "content": "second review to test average calc",
     "quality": 4,
-    "difficulty": 2,
+    "difficulty": 5,
     "courseLoad": 4,
-    "courseId": "66ad4f2a60c4ebd1a5c2c526",
+    "courseId": "66b7c04129a4eda3a8089e07",
     "author": "66aa8d188aaa8b508892e746"
 }
 

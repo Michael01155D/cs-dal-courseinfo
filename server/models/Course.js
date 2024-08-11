@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const Review = require('./Review');
 
 const courseSchema = new Schema({
     //todo: look into REGEX to ensure CSCI #### is followed as match validator option
@@ -39,6 +38,7 @@ const courseSchema = new Schema({
     avgQuality: Number,
     avgDifficulty: Number,
     avgCourseLoad: Number,
+    
     certificateRequirement: {
         type: Boolean,
         required: true,
@@ -53,11 +53,8 @@ const courseSchema = new Schema({
         type: Boolean,
         required: true,
         default: false
-    },
-    scienceWithLabElective: {
-        type: Boolean,
-        default: false
     }
+
 })
 
 module.exports = mongoose.model("Course", courseSchema);

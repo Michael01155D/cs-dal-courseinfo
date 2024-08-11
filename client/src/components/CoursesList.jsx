@@ -43,6 +43,7 @@ const CoursesList = ({courses}) => {
             filterInProgress = filterInProgress.concat(
                 courses.filter(c => c.coopRequirement == true && !filterInProgress.includes(c)));
         }
+        
         return filterInProgress;
     }
 
