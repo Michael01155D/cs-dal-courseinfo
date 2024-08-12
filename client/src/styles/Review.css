@@ -1,0 +1,38 @@
+.review {
+    text-align: center;
+}
+
+#authorAndDate {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#authorAndDate > p:first-child {
+    grid-column-start: 2;
+}
+
+#authorAndDate > p:last-child {
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#reviewRatings {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+#miscReviewDetails {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+
+#reviewContent {
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 2%;
+}

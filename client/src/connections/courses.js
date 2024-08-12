@@ -13,4 +13,14 @@ const getCourses = async () => {
     }
 }
 
-export { getCourses }
+const getCourse = async (id) => {
+    try {
+        const course = await fetch(`${url}/${id}`);
+        return course.json();
+    } catch (e) {
+        console.log("exception! its: ", e);
+        return;
+    }
+}
+
+export { getCourses, getCourse }

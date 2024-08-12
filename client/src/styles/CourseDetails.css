@@ -1,0 +1,27 @@
+#courseDetailsContainer {
+    text-align: center;
+}
+
+#courseDetailsContainer > header {
+    font-family: consolas ;
+}
+
+#courseAverages > ul, #courseReviews > ul {
+    list-style-type: none;
+}
+
+#courseAverages > ul > h3 {
+    font-size: larger;
+    margin-top: 2%;
+
+}
+
+#courseReviews > header {
+    text-align: center;
+}
+
+.reviewContainer {
+    border: 1px solid gray;
+    border-radius: 20px;
+    margin-top: 10%
+}
