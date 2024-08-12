@@ -3,24 +3,23 @@
     border-radius: 8%;
     text-align: center;
     height: 20em;
-    width: 15em;
+    width: 16em;
 }
 
 #courseTags {
-    width: 100%;
+    width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 50%;
-    padding-bottom: 20%;
+    row-gap: 60%;
+    column-gap: 10%;
+    padding-bottom: 10%;
+    padding-left: 2%;
 }
 
 .tag {
-    height: 150%;
+    height: 120%;
     min-width: fit-content;
-    padding: 2% 5%;
-    justify-self: center;
-    align-self: center;
-    align-content: center;
+    padding: 2% 2%;
     font-size: small;
     text-align: center;
 }
