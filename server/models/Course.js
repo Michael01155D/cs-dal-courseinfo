@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const courseSchema = new Schema({
-    //todo: look into REGEX to ensure CSCI #### is followed as match validator option
+    
     courseCode: {
         type: String,
         required: true,

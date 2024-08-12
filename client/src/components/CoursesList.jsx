@@ -14,16 +14,16 @@ const CoursesList = ({courses}) => {
     const applyFilters = () => {
         let filterInProgress = [];
         if (checkedBoxes.includes("year1")) {
-            filterInProgress = filterInProgress.filter(c => c.year == 1);
+            filterInProgress = courses.filter(c => c.year == 1);
         }
         if (checkedBoxes.includes("year2")) {
-            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 2));
+            filterInProgress = courses.filter(c => c.year == 2);
         }
         if (checkedBoxes.includes("year3")) {
-            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 3));
+            filterInProgress = courses.filter(c => c.year == 3);
         }
         if (checkedBoxes.includes("year4")) {
-            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 4));
+            filterInProgress = courses.filter(c => c.year == 4);
         }
         if (checkedBoxes.includes("bacs")) {
             filterInProgress = filterInProgress.concat(
@@ -59,9 +59,9 @@ const CoursesList = ({courses}) => {
         }
 
         if (query.length > 0) {
-            queryFilter.concat(
+            queryFilter = queryFilter.concat(
                 courses.filter(
-                    c => c.courseCode.includes(query.trim())
+                    c => c.courseCode.toLowerCase().includes(query.trim().toLowerCase())
                     || c.courseDescription.includes(query.trim())
                 )
             )

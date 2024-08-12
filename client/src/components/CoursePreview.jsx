@@ -4,11 +4,21 @@ import {Link} from 'react-router-dom';
 
 
 const CoursePreview = ({course}) => {
-    //todo: add styling for tags
+    
     const [tags, setTags] = useState([]);
-    const [tagBgIndex, setTagBgIndex] = useState(0);
-
-    const tagBackgrounds = ["lightblue", "lightgreen", "lightred", "lightyellow"];
+    //todo: adjust colors
+    const tagBackgrounds = {
+                            "First Year" :"lightblue",
+                            "Second Year": "lightgreen", 
+                            "Third Year": "lightred",
+                            "Fourth Year": "yellow",
+                            "BCS Requirement": "lightpink",
+                            "BACS Requirement": "orange",
+                            "Elective": "blue",
+                            "Co-op": "magenta",
+                            "Certificate": "cyan"
+                        };
+    console.log(tagBackgrounds["Co-Op"])
     useEffect(() => {
         let tagsToAdd = [];
         switch(course.year) {
@@ -65,7 +75,9 @@ const CoursePreview = ({course}) => {
                 <p> difficulty: {avgDifficulty} </p>
             </Link>
             <section id='courseTags'>
-                {tags.map(tag => <div  key={tag} className='tag'> {tag} </div>)}
+                {tags.map( (tag) => 
+
+                        <div  key={tag} className='tag' style={ {backgroundColor: tagBackgrounds[tag] }}> {tag} </div> )}
             </section>
         </section>
     )
