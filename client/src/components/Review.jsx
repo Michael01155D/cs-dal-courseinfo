@@ -16,7 +16,7 @@ const YEARS = {
 }
 
 const Review = ({review}) => {
-    console.log('review obj is', review)
+    console.log('review obj is', review);
     const day = review.createdAt.substring(8, 10);
     const month = YEARS[review.createdAt.substring(5, 7)];
     const year = review.createdAt.substring(0, 4);
@@ -24,7 +24,7 @@ const Review = ({review}) => {
     return (
         <div className='review'>
             <section id='authorAndDate'>
-                <p>Reviewed By {review.author.username} </p> 
+                <p>Reviewed By { review.postedAnonymously == true ? "Anonymous" : review.author.username} </p> 
                 <p>{day + " " + month + " " + year} </p>
             </section>
             <section id='reviewRatings'>
@@ -37,7 +37,6 @@ const Review = ({review}) => {
                 <p>Course Instructor: {review.professor ? review.professor : "Not provided"} </p>
             </section>
             <main id='reviewContent'>
-                <p>Comments:</p>
                 <p>{review.content}</p>
             </main>
         </div>

@@ -11,6 +11,12 @@ const reviewSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course"
     },
+
+    postedAnonymously: {
+        type: Boolean,
+        default: false
+    },
+    
     proffesor: String,
     yearTaken: Number,
     quality: {

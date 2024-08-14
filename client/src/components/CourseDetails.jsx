@@ -14,8 +14,8 @@ const CourseDetails = () => {
         setCourse(courseData);
     }
     
-    //todo: add a button that lets user add a review
-
+    //todo: add a button Link to newReview form for current review.
+    //ADD checkbox OPTION SO USER CAN POST ANONYMOUSLY 
     useEffect(() => {
         getCourseData(id);
     }, [])
@@ -83,6 +83,7 @@ const CourseDetails = () => {
                 <section id='courseReviews'>
                     <header>
                         <h2>Reviews</h2>
+                        {/**todo: add Link to newReviewForm */}
                     </header>
                     {course.reviews.length > 0 ?
                     <ul>
