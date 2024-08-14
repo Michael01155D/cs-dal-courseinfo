@@ -41,10 +41,7 @@ const reviewSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    upvotes: {
-        type: Number,
-        default: 0
-    }
+
 }, {timestamps: true})
 
 module.exports = mongoose.model("Review", reviewSchema);

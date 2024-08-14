@@ -10,6 +10,7 @@ import AboutPage from './components/AboutPage';
 import CoursesList from './components/CoursesList';
 import CourseDetails from './components/CourseDetails';
 import CoursesByYear from './components/CoursesByYear';
+import NewReviewForm from './components/NewReviewForm';
 import NotFoundPage from './components/NotFoundPage';
 import { getCourses } from './connections/courses';
 
@@ -44,6 +45,7 @@ function App() {
             <Route path="/courses" element={<CoursesList courses={courses}/>} />
             <Route path="/courses/:id" element={<CourseDetails />} />
             <Route path="/courses/year/:year" element={<CoursesByYear />} />
+            <Route path="/courses/:id/newReview" element={<NewReviewForm/>}/>
             <Route path="*" element={<NotFoundPage/>} />
           </Route>
       </Routes>

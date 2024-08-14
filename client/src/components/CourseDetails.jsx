@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getCourse } from "../connections/courses";
 import { useEffect, useState } from "react";
 import Review from './Review';
@@ -83,7 +83,7 @@ const CourseDetails = () => {
                 <section id='courseReviews'>
                     <header>
                         <h2>Reviews</h2>
-                        {/**todo: add Link to newReviewForm */}
+                        <Link to={`newReview`} state={course}> Create Review </Link>
                     </header>
                     {course.reviews.length > 0 ?
                     <ul>
