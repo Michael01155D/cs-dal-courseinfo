@@ -4,6 +4,7 @@ import '../styles/Layout.css';
 import { AuthContext } from "../contexts";
 import { logout } from "../connections/users";
 const Layout = () => {
+    
     const { user, setUser }  = useContext(AuthContext);
     const navigate = useNavigate();
     const pathName  = useLocation();

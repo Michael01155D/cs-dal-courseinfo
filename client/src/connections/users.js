@@ -2,7 +2,7 @@
 const url = `${import.meta.env.VITE_BACKEND_URL}/users`;
 
 export const login = async (user) => {
-    console.log("in frontend login service, user being passed as param is", user)
+    
     try {
         const res = await fetch(`${url}/login`, {
             method: 'post',

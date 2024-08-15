@@ -8,8 +8,10 @@ import { register } from "../connections/users";
 const SignUpPage = () => {
     const [isError, setIsError] = useState(false);
     const [displayMsg, setDisplayMsg] = useState("");
-    const handleRegister = () => {
-        console.log('this will do stuff');
+
+    const handleRegister = async (username, password) => {
+        const result = await register(username, password);
+        console.log('result is: ', result);
     }
 
     return(
