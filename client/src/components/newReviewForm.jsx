@@ -13,7 +13,7 @@ const NewReviewForm = () => {
     const [yearTaken, setYearTaken] = useState('');
     const [prof, setProf] = useState('');
     const [postedAnonymously, setPostedanonymously] = useState(false); 
-
+    const CURRENT_YEAR = new Date().getFullYear();
 
     useEffect(() => {
         if (state) {
@@ -60,13 +60,16 @@ const NewReviewForm = () => {
                     />
                 </section>
                 <section id='miscFields'>
-                    <label htmlFor="prof">Professor's Name (Optional)</label>
+                    <label htmlFor="prof">Professor's Name (Optional):</label>
                     <input type='text' name="prof"/>
-                    <label htmlFor="yearTaken">Year Taken: (Optional)</label>
-                    {/*todo: sanitize input on yearTaken better using attribs */}
-                    <input type='number' name='yearTaken' min='2014' max='2024'/> 
+                    <label htmlFor="yearTaken">Year Taken:</label>
+                    <input type='number' name='yearTaken' min={CURRENT_YEAR - 10} max={CURRENT_YEAR} defaultValue={CURRENT_YEAR} onKeyDown={(event) => event.preventDefault()}/> 
                 </section>
                 <textarea name='content' value={content} rows={20} onChange={(e) => setContent(e.target.value)}/>
+                <section id='anonymousCheckBox'>
+                    <input  id='anonymous' type='checkbox' name='anonymous'/>
+                    <label htmlFor='anonymous'>Post anonymously?</label>
+                </section>
                 <input type='submit'/>
             </form>
         </div>
