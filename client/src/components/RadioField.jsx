@@ -1,8 +1,9 @@
 import React from 'react'
+import '../styles/RadioField.css'
 //inputIds and labelText same size arr. w/ corresponding pairs of input id attribute&label text
 const RadioField = ( { legendName, inputIds, labelText } ) => {
     return(
-        <fieldset>
+        <fieldset id='radioField'>
             <legend> {legendName}: </legend>
             {inputIds.map(function(id, i) {
                 return(

@@ -6,7 +6,7 @@
     font-family: consolas ;
 }
 
-#courseAverages > ul, #courseReviews > ul {
+#courseAverages > ul, #courseReviews > ul, #prerequisiteInfo > ul {
     list-style-type: none;
 }
 

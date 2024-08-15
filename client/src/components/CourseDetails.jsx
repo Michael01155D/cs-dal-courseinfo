@@ -49,18 +49,18 @@ const CourseDetails = () => {
                 <h2>{course.courseCode}: {course.courseDescription}</h2>
             </header>
             <section id="courseInfo">
-                <p id='prerequisiteInfo'>
+                <section id='prerequisiteInfo'>
                     Prerequisites:
                     <>
                     {course.prerequisites.length == 0 ? 
                         " None" :
                         <ul>
-                            {course.prerequisites.map(p => <li>{p.courseCode}</li>)}
+                            {course.prerequisites.map(p => <li key={p.courseCode}>{p.courseCode}</li>)}
                         </ul>
                     } 
                     </>
 
-                </p>
+                </section>
                 <p>This course is {courseRequiredText}</p>
                 <section id='courseAverages'>
                     {course.reviews.length > 0 ?

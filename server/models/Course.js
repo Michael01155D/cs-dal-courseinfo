@@ -35,20 +35,6 @@ const courseSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Review"
     }],
-    avgQuality: Number,
-    avgDifficulty: Number,
-    avgCourseLoad: Number,
-    
-    certificateRequirement: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
-    certificateElective: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
     coopRequirement: {
         type: Boolean,
         required: true,

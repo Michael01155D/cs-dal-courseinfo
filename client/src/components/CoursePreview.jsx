@@ -18,7 +18,6 @@ const CoursePreview = ({course}) => {
                             "Co-op": "magenta",
                             "Certificate": "cyan"
                         };
-    console.log(tagBackgrounds["Co-Op"])
     useEffect(() => {
         let tagsToAdd = [];
         switch(course.year) {

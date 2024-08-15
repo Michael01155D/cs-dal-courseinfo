@@ -12,7 +12,7 @@ const CourseSearcher = () => {
         //to do: have this navigate to the CoursesList page w. formProps set up properly
     }
     return(
-        <form onSubmit={doStuff}>
+        <form id='homePageSearchForm' onSubmit={doStuff}>
             <label htmlFor='searchQuery'>Course Search</label>
             <input name="searchQuery" id='searchQuery' type='text' placeholder='Course Name or Code'></input>
             <button id='courseSearchFormSubmit' type='submit'>Search</button>

@@ -1,0 +1,38 @@
+#reviewFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#radioFields {
+    margin-top: 2px;
+}
+#reviewFormContainer > form > textarea {
+    resize: none;
+    width: 40%;
+    margin: auto;
+    border-radius: 30px;
+    padding-left: 2%;
+    padding-top: 1%;
+    font-size: larger;
+    word-wrap: break-word;
+}
+
+#reviewFormContainer > form > input:last-child {
+    width: 20%;
+    padding: 5px;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 3%;
+}
+
+#reviewFormContainer > form {
+    border: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#reviewFormContainer > header {
+    text-align: center;
+    margin-top: 2%;
+}
