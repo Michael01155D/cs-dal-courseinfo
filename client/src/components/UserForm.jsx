@@ -24,7 +24,7 @@ const UserForm = ({requestHandler, formAction}) => {
                 />
             </section>
             <section>
-                <label  className='visuallyHidden' htmlFor="passwordForm">Password</label>
+                <label className='visuallyHidden' htmlFor="passwordForm">Password</label>
                 <input placeholder="password" id='passwordForm' type='password' value={password} name="Password" 
                 onChange={(newPw) => setPassword(newPw.target.value) }
                 />

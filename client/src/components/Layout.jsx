@@ -1,12 +1,21 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useContext } from "react";
 import '../styles/Layout.css';
+import { AuthContext } from "../contexts";
+import { logout } from "../connections/users";
 const Layout = () => {
-
+    const { user, setUser }  = useContext(AuthContext);
+    const navigate = useNavigate();
     const pathName  = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathName])
+
+    const signOut = async () => {
+        await logout(user);
+        setUser(null);
+        navigate('/');
+    }
 
     return(
         <div id="layoutContainer">
@@ -22,17 +31,27 @@ const Layout = () => {
                         <li>
                             <Link to="about">About</Link>
                         </li>
-                        {/*todo: conditionally render Link to Login vs. link to Profile*/}
-                        <li>
-                            <Link to="login">Sign In / Sign Up</Link>
-                        </li>
+                            {
+                                user ?
+                                <>
+                                    <li>
+                                        <Link to="userProfile">{user.username}</Link>
+                                    </li>
+                                    <li>
+                                        <button id='logoutButton' onClick={() => signOut()}>Sign Out</button>
+                                    </li>
+                                </>
+                                :
+                                 <li>
+                                    <Link to="login">Login</Link>
+                                </li>
+                            }
                     </ul>
                 </nav>
             </header>
             <Outlet />
             <footer id="footer">
                 <p>This website is unaffiliated with Dalhousie University. The accuracy of any information on this site cannot be guaranteed.</p>
-                <p>To do: add contact link</p>
             </footer>
         </div>
     )

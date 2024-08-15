@@ -37,7 +37,9 @@ userRouter.post('/', async (req, res) => {
 
 //login route
 userRouter.post('/login', async (req, res) => {
+    console.log("in backend login method, reqbody is:", req.body);
     const user = await User.findOne({username: req.body.username});
+    console.log("in backend login method, user is:", user);
     const isValid = !user ? false : await bcrypt.compare(req.body.password, user.passwordHash);
     if (!isValid) {
         return res.status(401).json({error: "invalid username or password"});
@@ -45,6 +47,7 @@ userRouter.post('/login', async (req, res) => {
     const authToken = token.sign(user.toJSON(), process.env.SECRET);
     const salt = await bcrypt.genSalt(10);
     user.session = await bcrypt.hash(authToken, salt);
+    await user.save();
     res.status(200).send(user);
 })
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Route, Routes, Router } from 'react-router-dom';
 import './styles/App.css';
 import Layout from './components/Layout';
@@ -13,9 +13,18 @@ import CoursesByYear from './components/CoursesByYear';
 import NewReviewForm from './components/NewReviewForm';
 import NotFoundPage from './components/NotFoundPage';
 import { getCourses } from './connections/courses';
+import { AuthContext } from './contexts';
 
 function App() {
   const [courses, setCourses] = useState([]);
+
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    if (localStorage.getItem('csDal')) {
+      setUser(JSON.parse(localStorage.getItem('csDal')))
+    }
+  }, [])
 
   const fetchCourseData = async () => {
     const data = await getCourses();
@@ -35,20 +44,22 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Layout/>}>
-            <Route index element={<HomePage courses={courses}/>} /> 
-            <Route path="/login" element={<LoginPage />}/>
-            <Route path="/signUp" element={<SignUpPage />} />
-            <Route path="/userProfile" element={<UserProfile/>}/>
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/courses" element={<CoursesList courses={courses}/>} />
-            <Route path="/courses/:id" element={<CourseDetails />} />
-            <Route path="/courses/year/:year" element={<CoursesByYear />} />
-            <Route path="/courses/:id/newReview" element={<NewReviewForm/>}/>
-            <Route path="*" element={<NotFoundPage/>} />
-          </Route>
-      </Routes>
+      <AuthContext.Provider value={ {user, setUser} }>
+        <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route index element={<HomePage courses={courses}/>} /> 
+              <Route path="/login" element={<LoginPage />}/>
+              <Route path="/signUp" element={<SignUpPage />} />
+              <Route path="/userProfile" element={<UserProfile/>}/>
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/courses" element={<CoursesList courses={courses}/>} />
+              <Route path="/courses/:id" element={<CourseDetails />} />
+              <Route path="/courses/year/:year" element={<CoursesByYear />} />
+              <Route path="/courses/:id/newReview" element={<NewReviewForm/>}/>
+              <Route path="*" element={<NotFoundPage/>} />
+            </Route>
+        </Routes>
+      </AuthContext.Provider>
     </BrowserRouter>
     </>
   )

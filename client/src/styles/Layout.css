@@ -60,6 +60,12 @@
         transform: translate3d(0, 0, 0);
     }
 
+    #logoutButton {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(95, 197, 225);
+        padding: 0 12px ;
+    }
+
     #footer {
         max-width: 100%;
         background-color: black;

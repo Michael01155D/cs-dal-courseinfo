@@ -1,5 +1,16 @@
 #errorDisplay {
     color: darkred;
     background-color: rgba(235, 136, 136, 0.158);
+    font-size: medium;
+    font-family: consolas;
+    font-weight: bolder;
     margin: 0;
+}
+
+@media only screen and (min-width: 330px) {
+
+    #errorDisplay {
+        font-size: larger;
+    }
+
 }
