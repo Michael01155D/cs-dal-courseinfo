@@ -1,5 +1,6 @@
 .coursePreviewContainer {
     border: 0.1px solid black;
+    background-color: rgba(209, 0, 251, 0.071);
     border-radius: 8%;
     text-align: center;
     height: 20em;

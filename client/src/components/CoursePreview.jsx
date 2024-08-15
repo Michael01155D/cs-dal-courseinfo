@@ -8,8 +8,8 @@ const CoursePreview = ({course}) => {
     const [tags, setTags] = useState([]);
     //todo: adjust colors
     const tagBackgrounds = {
-                            "First Year" :"lightblue",
-                            "Second Year": "lightgreen", 
+                            "First Year" :"lightgreen",
+                            "Second Year": "lightblue", 
                             "Third Year": "lightred",
                             "Fourth Year": "yellow",
                             "BCS Requirement": "lightpink",
