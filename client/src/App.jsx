@@ -10,7 +10,7 @@ import AboutPage from './components/AboutPage';
 import CoursesList from './components/CoursesList';
 import CourseDetails from './components/CourseDetails';
 import CoursesByYear from './components/CoursesByYear';
-import NewReviewForm from './components/NewReviewForm';
+import ReviewForm from './components/ReviewForm';
 import NotFoundPage from './components/NotFoundPage';
 import { getCourses } from './connections/courses';
 import { AuthContext } from './contexts';
@@ -55,7 +55,7 @@ function App() {
               <Route path="/courses" element={<CoursesList courses={courses}/>} />
               <Route path="/courses/:id" element={<CourseDetails />} />
               <Route path="/courses/year/:year" element={<CoursesByYear />} />
-              <Route path="/courses/:id/newReview" element={<NewReviewForm/>}/>
+              <Route path="/courses/:id/newReview" element={<ReviewForm/>}/>
               <Route path="*" element={<NotFoundPage/>} />
             </Route>
         </Routes>
