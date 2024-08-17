@@ -27,11 +27,12 @@ export const logout = async (user) => {
     localStorage.removeItem('csDal');
 }
 
-export const register = async (userInfo) => {
+export const register = async ({username, password}) => {
+    
     try {
         const res = await fetch(url, {
             method: 'post',
-            body: {username: userInfo.username, password: userInfo.password},
+            body: JSON.stringify({username, password}),
             headers: {
                 "Content-Type": "application/json",
               }

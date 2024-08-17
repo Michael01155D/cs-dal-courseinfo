@@ -27,8 +27,12 @@ function App() {
   }, [])
 
   const fetchCourseData = async () => {
-    const data = await getCourses();
-    setCourses(data);
+    try {
+      const data = await getCourses();
+      setCourses(data);
+    } catch (e) {
+      console.error("Error fetching course data from server")
+    }
   }
 
   useEffect(() => {

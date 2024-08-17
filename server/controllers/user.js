@@ -19,6 +19,7 @@ userRouter.get('/', async (req, res) => {
 
 //create new user
 userRouter.post('/', async (req, res) => {
+    console.log("register request body is ", req.body)
     const salt = await bcrypt.genSalt(10);
     const pw = req.body.password;
     if (!pw || pw.trim().length < 8) {
@@ -30,6 +31,12 @@ userRouter.post('/', async (req, res) => {
         const savedUser = await newUser.save();
         res.json(savedUser);
     } catch (e) {
+        
+        if (e.errorResponse && e.errorResponse.errmsg) {
+            if (e.errorResponse.errmsg.includes("duplicate key error")) {
+                return res.json({error: "Username is already taken."})
+            }
+        }
         res.json(e);
     }
 
@@ -37,9 +44,7 @@ userRouter.post('/', async (req, res) => {
 
 //login route
 userRouter.post('/login', async (req, res) => {
-    console.log("in backend login method, reqbody is:", req.body);
     const user = await User.findOne({username: req.body.username});
-    console.log("in backend login method, user is:", user);
     const isValid = !user ? false : await bcrypt.compare(req.body.password, user.passwordHash);
     if (!isValid) {
         return res.status(401).json({error: "invalid username or password"});

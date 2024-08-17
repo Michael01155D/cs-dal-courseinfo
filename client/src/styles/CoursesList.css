@@ -51,9 +51,10 @@ background-color: rgba(173, 216, 230, 0.509);
 }
 
 #courseGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 #browseByYear {
@@ -89,7 +90,7 @@ background-color: rgba(173, 216, 230, 0.509);
       min-height: 80vh;
       width: 98vw;
       display: grid;
-      column-gap: 10%;
+      column-gap: 5%;
       grid-template-columns: .5fr 1fr .8fr;
       grid-template-areas:
       ". title ."
@@ -159,8 +160,8 @@ background-color: rgba(173, 216, 230, 0.509);
       text-align: center;
       display: flex;
       flex-direction: column;
-      border: 1px ridge black;
-      border-radius: 8%;
+      border-right: 1px ridge black;
+      min-width: fit-content;
       
     }
 

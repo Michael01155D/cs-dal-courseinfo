@@ -67,9 +67,8 @@ const CoursesList = ({courses}) => {
             )
         }
         setFilteredCourses(queryFilter);
-        console.log("after applying all filters, filteredCourses is ", filteredCourses)
     }, [query, checkedBoxes])
-    console.log("checkedboxes in courseList page is", checkedBoxes)
+
     return(
         <div id='coursesListContainer'>
             <header>
