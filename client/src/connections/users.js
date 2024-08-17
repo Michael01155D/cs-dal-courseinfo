@@ -23,12 +23,22 @@ export const login = async (user) => {
 }
 
 export const logout = async (user) => {
-
-    localStorage.removeItem('csDal');
+    try {
+        const res = await fetch(`${url}/logout/${user._id}`, {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user._id)
+        })
+        localStorage.removeItem('csDal');
+    } catch (e) {
+        console.log("exception in logout service: ", e);
+    }
 }
 
 export const register = async ({username, password}) => {
-    
+
     try {
         const res = await fetch(url, {
             method: 'post',
