@@ -7,9 +7,12 @@ This is a personal project to practice and improve building a MERN stack web app
 
 Frontend: 
 
+-Search Bar on homepage needs to redirect to CoursesList page with filters set
+
 -Registration Page should create new user object and sign them in. 
 
 -Allow logged in user to post a Review
+
 
 Backend:
 

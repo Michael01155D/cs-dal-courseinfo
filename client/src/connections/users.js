@@ -29,7 +29,7 @@ export const logout = async (user) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(user._id)
+            body: JSON.stringify({id: user._id})
         })
         localStorage.removeItem('csDal');
     } catch (e) {
