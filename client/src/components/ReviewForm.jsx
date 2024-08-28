@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createReview } from "../connections/reviews";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import RadioField from "./RadioField";
 import '../styles/NewReviewForm.css'
+import { AuthContext } from "../contexts";
+
 const NewReviewForm = () => {
     const { state } = useLocation();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [course, setCourse] = useState();
     const [content, setContent] = useState("");
     const [quality, setQuality] = useState(0);
@@ -17,18 +21,31 @@ const NewReviewForm = () => {
 
     useEffect(() => {
         if (state) {
-            console.log('state is ' , state.courseCode)
             setCourse(state)
+        }
+        if (!user) {
+            navigate("/courses")
         }
     }, []);
 
     const sendReview = async (event) => {
-        //event target values: 0: content, 1: quality, 2: difficulty, 3: courseload, 4: yeartaken, 5: prof, 6:postedanon
+        setPostedanonymously(false);
         event.preventDefault();
         const form = event.target;
         const formObj = Object.fromEntries(new FormData(form).entries());
         console.log("formData is", formObj)
-        const newReview = {content, quality, difficulty, courseLoad, yearTaken, prof, postedAnonymously, course,}
+        setDifficulty(formObj.Difficulty);
+        setQuality(formObj.Quality);
+        setCourseLoad(formObj["Course Load"]);
+        setProf(formObj.prof);
+        setYearTaken(formObj.yearTaken);
+        if (formObj.anonymous) {
+            setPostedanonymously(true);
+        }
+    
+        const newReview = {content, quality, difficulty, courseLoad, yearTaken, prof, postedAnonymously, course, author: user}
+
+        console.log("new Review is :" , newReview)
         // setReview(...review, course);
 
         //await createReview(review);
@@ -45,17 +62,17 @@ const NewReviewForm = () => {
                 <section id='radioFields'>
                     <RadioField 
                         labelText={["1 (easiest)", "2", "3", "4", "5"]} 
-                        inputIds={["difficulty1", "difficulty2", "difficulty3", "difficulty4", "difficulty5"]}
+                        inputIds={[1, 2, 3, 4, 5]}
                         legendName={"Difficulty"}
                     />
                     <RadioField 
                         labelText={["1 (lowest)", "2", "3", "4", "5"]} 
-                        inputIds={["quality1", "quality2", "quality3", "quality4", "quality5"]}
+                        inputIds={[1, 2, 3, 4, 5]}
                         legendName={"Quality"}
                     />
                     <RadioField 
                         labelText={["1 (least work)", "2", "3", "4", "5"]} 
-                        inputIds={["load1", "load2", "load3", "load4", "load5"]}
+                        inputIds={[1, 2, 3, 4, 5]}
                         legendName={"Course Load"}
                     />
                 </section>

@@ -1,12 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { getCourse } from "../connections/courses";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Review from './Review';
 import '../styles/CourseDetails.css';
+import { AuthContext } from "../contexts";
 
 const CourseDetails = () => {
     const [course, setCourse] = useState();
     const { id } = useParams();
+    const { user } = useContext(AuthContext);
     //string to display if course is required for BCS and BACS, only one, or neither (default)
     const [courseRequiredText, setcourseRequiredText] = useState(" an elective.");
     const getCourseData = async () => {
@@ -14,8 +16,6 @@ const CourseDetails = () => {
         setCourse(courseData);
     }
     
-    //todo: add a button Link to newReview form for current review.
-    //ADD checkbox OPTION SO USER CAN POST ANONYMOUSLY 
     useEffect(() => {
         getCourseData(id);
     }, [])
@@ -40,7 +40,6 @@ const CourseDetails = () => {
         }
     }, [course])
 
-    console.log("course is", course)
     return(
         <>
         {course ?
@@ -83,7 +82,10 @@ const CourseDetails = () => {
                 <section id='courseReviews'>
                     <header>
                         <h2>Reviews</h2>
-                        <Link to={`newReview`} state={course}> Create Review </Link>
+                        { user ? 
+                            <Link to={`newReview`} state={course}> Create Review </Link>
+                            :<></>
+                        }
                     </header>
                     {course.reviews.length > 0 ?
                     <ul>
