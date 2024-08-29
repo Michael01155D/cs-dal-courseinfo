@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { createReview } from "../connections/reviews";
+import { createReview, updateReview } from "../connections/reviews";
 import { useLocation, useNavigate } from "react-router-dom";
 import RadioField from "./RadioField";
 import '../styles/NewReviewForm.css'
 import { AuthContext } from "../contexts";
+import NotificationMessage from "./NotificationMessage";
 
 const NewReviewForm = () => {
     const { state } = useLocation();
@@ -11,13 +12,8 @@ const NewReviewForm = () => {
     const navigate = useNavigate();
     const [course, setCourse] = useState();
     const [content, setContent] = useState("");
-    const [quality, setQuality] = useState(0);
-    const [difficulty, setDifficulty] = useState(0);
-    const [courseLoad, setCourseLoad] = useState(0);
-    const [yearTaken, setYearTaken] = useState('');
-    const [prof, setProf] = useState('');
-    const [postedAnonymously, setPostedanonymously] = useState(false); 
     const CURRENT_YEAR = new Date().getFullYear();
+    const [msg, setMsg] = useState('');
 
     useEffect(() => {
         if (state) {
@@ -29,28 +25,30 @@ const NewReviewForm = () => {
     }, []);
 
     const sendReview = async (event) => {
-        setPostedanonymously(false);
         event.preventDefault();
         const form = event.target;
         const formObj = Object.fromEntries(new FormData(form).entries());
         console.log("formData is", formObj)
-        setDifficulty(formObj.Difficulty);
-        setQuality(formObj.Quality);
-        setCourseLoad(formObj["Course Load"]);
-        setProf(formObj.prof);
-        setYearTaken(formObj.yearTaken);
-        if (formObj.anonymous) {
-            setPostedanonymously(true);
-        }
-    
+        const difficulty = formObj.Difficulty;
+        const quality = formObj.Quality;
+        const courseLoad = formObj["Course Load"];
+        const prof = formObj.prof;
+        const yearTaken = formObj.yearTaken;
+        const postedAnonymously = formObj.anonymous ? true : false;
+
         const newReview = {content, quality, difficulty, courseLoad, yearTaken, prof, postedAnonymously, course, author: user}
-
-        console.log("new Review is :" , newReview)
-        // setReview(...review, course);
-
-        //await createReview(review);
+        if (!quality || !difficulty || !courseLoad) {
+            setMsg("Please select an option for Course Quality, Difficulty, and Course Load")
+            return;
+        } else {
+            setMsg('');
+            if (user.reviewsWritten.map(r => r.course).includes(course)) {
+                await updateReview(newReview);
+            }
+            await createReview(newReview);
+            // navigate(`/courses/${course._id}`);
+        }
     }
-
 
     return(
         course ?
@@ -89,6 +87,10 @@ const NewReviewForm = () => {
                 </section>
                 <input type='submit'/>
             </form>
+            {msg.length > 0 ?
+                <NotificationMessage id='reviewFormError' message={msg} isError={true}/>
+                : <></>
+            }
         </div>
         :
         <></>

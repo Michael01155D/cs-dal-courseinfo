@@ -60,3 +60,9 @@
     margin: auto;
     margin-top: 2px;
 }
+
+#errorDisplay {
+    margin-bottom: 2%;
+    width: 50%;
+    margin: auto;
+}

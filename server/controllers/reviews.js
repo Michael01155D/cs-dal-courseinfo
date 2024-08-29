@@ -25,9 +25,9 @@ reviewRouter.get('/:id', async (req, res) => {
 
 
 reviewRouter.post('/', async (req, res) => {
-
+    console.log("in review POST route, req body is: ", req.body)
     try {
-        const courseReviewed = await Course.findById(req.body.courseId);
+        const courseReviewed = await Course.findById(req.body.course._id);
         const newReview = new Review({...req.body, course: courseReviewed._id});
         const savedReview = await newReview.save();
         courseReviewed.reviews = courseReviewed.reviews.concat(savedReview);

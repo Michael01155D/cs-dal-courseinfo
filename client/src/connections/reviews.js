@@ -2,22 +2,21 @@
 
 const url = `${import.meta.env.VITE_BACKEND_URL}/reviews`;
 
-export const createReview = async ({review, token}) => {
+export const createReview = async (review, token) => {
     //todo: once login is implemented, verify session token matches review's author
     try {
-        let reviewToPost = review;
-        //verify data before posting:
-
+   
+        console.log("in frontend connection, review to post is: " , review)
         const response = await fetch(url, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
                 //todo: add Authorization header
             },
-            body: JSON.stringify({reviewToPost})
+            body: JSON.stringify(review)
         })
-        console.log("response from POST review is, ", response);
-        return response;
+        
+        return response.json();
     } catch (err) {
         console.log("err is: ", err);
     }
@@ -25,7 +24,11 @@ export const createReview = async ({review, token}) => {
 }
 
 export const updateReview = async (review) => {
+    try {
 
+    } catch (err) {
+        console.log("Error in updateReview connection is",)
+    }
 }
 
 export const deleteReview = async (review) => {

@@ -16,7 +16,6 @@ const YEARS = {
 }
 
 const Review = ({review}) => {
-    console.log('review obj is', review);
     const day = review.createdAt.substring(8, 10);
     const month = YEARS[review.createdAt.substring(5, 7)];
     const year = review.createdAt.substring(0, 4);
