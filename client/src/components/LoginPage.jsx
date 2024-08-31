@@ -17,7 +17,7 @@ const LoginPage = () => {
             removeMsg(setMessage, setIsError);
         }
         const res = await login({username, password});
-        console.log('res is:', res)
+        
         if (res.error) {
             setMessage("Invalid Username or Password");
             setIsError(true);

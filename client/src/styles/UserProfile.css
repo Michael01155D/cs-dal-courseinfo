@@ -1,0 +1,20 @@
+#userProfileContainer {
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+    align-items: center;
+}
+
+#userInfo {
+    width: 100vw;
+    text-align: center;
+}
+
+.profileCategory {
+    display: inline-block;
+    font-size: x-large;
+    font-family: garamond;
+    color: rgb(33, 82, 2);
+    font-weight: bolder;
+    margin-right: 1%;
+}
