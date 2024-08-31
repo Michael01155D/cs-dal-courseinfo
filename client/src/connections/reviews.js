@@ -25,7 +25,18 @@ export const createReview = async (review, token) => {
 
 export const updateReview = async (review) => {
     try {
+        const response = await fetch(`${url}/${review._id}`, {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json"
+                //todo: add auth header
+            },
+            body: JSON.stringify(review)
+        })
 
+        const data = await response.json();
+        console.log('in updatereview data is ', data)
+        return data;
     } catch (err) {
         console.log("Error in updateReview connection is",)
     }

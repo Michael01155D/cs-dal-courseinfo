@@ -43,10 +43,14 @@ const NewReviewForm = () => {
             return;
         } else {
             setMsg('');
-            if (user.reviewsWritten.map(r => r.course).includes(course)) {
-                await updateReview(newReview);
+            
+            if (user.reviewsWritten.map(r => r.course._id).includes(course._id)) {
+                const existingReview = user.reviewsWritten.find(r => r.course._id == course._id);
+                const updatedReview = {...newReview, _id: existingReview._id};
+                await updateReview(updatedReview);
+            } else {
+                await createReview(newReview);
             }
-            await createReview(newReview);
             await updateUserLocally(user, setUser);
             console.log("after calling updateUserLocally, user is: ", user);
             navigate(`/courses/${course._id}`);
