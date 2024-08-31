@@ -3,7 +3,7 @@ import '../styles/CoursesList.css';
 import CoursePreview from './CoursePreview';
 import { Link, useLocation } from 'react-router-dom';
 import  SearchFilters from './SearchFilters';
-
+import { activateCheckbox } from './Checkbox';
 const CoursesList = ({courses}) => {
     const [query, setQuery] = useState('');
     const [checkedBoxes, setCheckedBoxes] = useState([]);
@@ -11,9 +11,21 @@ const CoursesList = ({courses}) => {
     const [filteredCourses, setFilteredCourses] = useState([]);
     const { state } = useLocation();
     //TODO: continue working from here
+
     useEffect(() => {
-        console.log("in coursesList state obj is: ", state);
-        console.log('in coursesList, formProps is: ', state.formProps);
+        if (state) {
+            console.log("in coursesList state obj is: ", state);
+            console.log('in coursesList, formProps is: ', state.formProps);
+            setQuery(state.formProps.searchQuery);
+            for (const key in state.formProps) {
+                if ("" + key !== "searchQuery") {
+                    const newBoxes = checkedBoxes.concat("" + key);
+                    activateCheckbox(""+key);
+                    setCheckedBoxes(newBoxes);
+                }
+            }  
+        }
+
     }, [state])
    
         //filter courseList based on checkedBoxes
@@ -117,6 +129,7 @@ const CoursesList = ({courses}) => {
                     <label  className='visuallyHidden' htmlFor='searchInput'>Search</label>
                     <input type='text' id='searchInput' name='searchInput'
                         placeholder='Course Name or Code'
+                        value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         />
                 </section>

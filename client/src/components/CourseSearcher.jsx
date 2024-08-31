@@ -12,6 +12,7 @@ const CourseSearcher = () => {
         const formProps = Object.fromEntries(formData);
         console.log("stuff done, formProps is: ", {formProps});
         //to do: have this navigate to the CoursesList page w. formProps set up properly
+        
         navigate('/courses', { state: {formProps}});
     }
     return(

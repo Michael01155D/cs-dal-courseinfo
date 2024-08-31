@@ -1,3 +1,8 @@
+export const activateCheckbox = (idName) => {
+    const box = document.getElementById(idName);
+    box.checked = true;
+}
+
 const Checkbox = ({idName, text, checkedBoxes, setCheckedBoxes}) => {
     //if this box is checked, add field name to array of checkedBoxes passed from CourseList component
     const isChecked = (e) => {

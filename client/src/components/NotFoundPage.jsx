@@ -1,8 +1,8 @@
 const NotFoundPage = () => {
     return(
-        <>
-        FOUR 0 FOUR
-        </>
+        <main style={{textAlign: "center"}}>
+            <h2>Error 404: The Page You Are Looking For Is Unavailable. :(</h2>
+        </main>
     )
 }
 
