@@ -1,4 +1,8 @@
+import { useContext } from 'react';
 import '../styles/Review.css'
+import { AuthContext } from '../contexts';
+import { deleteReview } from '../connections/reviews';
+import { updateUserLocally } from '../connections/users';
 
 const YEARS = {
     "01": "Jan",
@@ -15,10 +19,18 @@ const YEARS = {
     "12": "Dec"
 }
 
-const Review = ({review}) => {
+const Review = ({review, getCourseData}) => {
+    
     const day = review.createdAt.substring(8, 10);
     const month = YEARS[review.createdAt.substring(5, 7)];
     const year = review.createdAt.substring(0, 4);
+    const { user, setUser } = useContext(AuthContext);
+
+    const removeReview = async () => {
+        await deleteReview(review._id);
+        await updateUserLocally(user, setUser);
+        await getCourseData();
+    }
 
     return (
         <div className='review'>
@@ -38,6 +50,14 @@ const Review = ({review}) => {
             <main id='reviewContent'>
                 <p>{review.content}</p>
             </main>
+            <footer>
+                {
+                    user && user._id == review.author._id ? 
+                    <button id='deleteReviewButton' onClick={removeReview}>Delete Review</button>
+                    :
+                    <></>
+                }
+            </footer>
         </div>
     )
 }

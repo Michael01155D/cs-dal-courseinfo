@@ -5,16 +5,16 @@ import RadioField from "./RadioField";
 import '../styles/NewReviewForm.css'
 import { AuthContext } from "../contexts";
 import NotificationMessage from "./NotificationMessage";
+import { updateUserLocally } from "../connections/users";
 
 const NewReviewForm = () => {
     const { state } = useLocation();
-    const { user } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [course, setCourse] = useState();
     const [content, setContent] = useState("");
     const CURRENT_YEAR = new Date().getFullYear();
     const [msg, setMsg] = useState('');
-
     useEffect(() => {
         if (state) {
             setCourse(state)
@@ -22,6 +22,7 @@ const NewReviewForm = () => {
         if (!user) {
             navigate("/courses")
         }
+        console.log("in form user is ", user)
     }, []);
 
     const sendReview = async (event) => {
@@ -46,7 +47,9 @@ const NewReviewForm = () => {
                 await updateReview(newReview);
             }
             await createReview(newReview);
-            // navigate(`/courses/${course._id}`);
+            await updateUserLocally(user, setUser);
+            console.log("after calling updateUserLocally, user is: ", user);
+            navigate(`/courses/${course._id}`);
         }
     }
 

@@ -31,6 +31,17 @@ export const updateReview = async (review) => {
     }
 }
 
-export const deleteReview = async (review) => {
-    
+export const deleteReview = async (id) => {
+    try {
+        await fetch(`${url}/${id}`, {
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json"
+                //todo: add auth header
+            }
+        })
+
+    } catch (err) {
+
+    }
 }

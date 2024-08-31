@@ -58,6 +58,16 @@ export const deleteUser = async (user) => {
 
 }
 
-export const updateUser = async (user) => {
-    
+//after posting or updating a review, call to update logged in user
+export const updateUserLocally = async (user, setUser) => {
+    try {
+        const result = await fetch(`${url}/${user._id}`)
+        if (!result.error) {
+            const data = await result.json();
+            localStorage.setItem('csDal', JSON.stringify(data));
+            setUser(data);
+        }
+    } catch (err) {
+        console.log("updateUserLocally err is", err);
+    }
 }

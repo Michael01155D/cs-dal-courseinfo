@@ -11,6 +11,7 @@ const CourseDetails = () => {
     const { user } = useContext(AuthContext);
     //string to display if course is required for BCS and BACS, only one, or neither (default)
     const [courseRequiredText, setcourseRequiredText] = useState(" an elective.");
+    
     const getCourseData = async () => {
         const courseData = await getCourse(id);
         setCourse(courseData);
@@ -89,7 +90,7 @@ const CourseDetails = () => {
                     </header>
                     {course.reviews.length > 0 ?
                     <ul>
-                        {course.reviews.map(r => <li className="reviewContainer" key={r.createdAt}><Review review={r} /></li>)}
+                        {course.reviews.map(r => <li className="reviewContainer" key={r.createdAt}><Review review={r} getCourseData={getCourseData}/></li>)}
                     </ul> 
                     :
                     <p>This course has no reviews yet.</p>   
