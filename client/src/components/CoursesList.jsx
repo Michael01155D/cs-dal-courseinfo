@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../styles/CoursesList.css';
 import CoursePreview from './CoursePreview';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import  SearchFilters from './SearchFilters';
 
 const CoursesList = ({courses}) => {
@@ -9,7 +9,13 @@ const CoursesList = ({courses}) => {
     const [checkedBoxes, setCheckedBoxes] = useState([]);
     //todo: once course objs are added, render them using filter
     const [filteredCourses, setFilteredCourses] = useState([]);
-
+    const { state } = useLocation();
+    //TODO: continue working from here
+    useEffect(() => {
+        console.log("in coursesList state obj is: ", state);
+        console.log('in coursesList, formProps is: ', state.formProps);
+    }, [state])
+   
         //filter courseList based on checkedBoxes
     const applyFilters = () => {
         let filterInProgress = [];

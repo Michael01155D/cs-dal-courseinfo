@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     fetchCourseData();
-  }, [])
+  }, [courses])
 
   if (courses.length == 0) {
     return (

@@ -71,7 +71,7 @@ const CoursePreview = ({course}) => {
             <Link className="coursePreview" to={`/courses/${course._id}`}>
                 <p>{course.courseCode}</p>
                 <p>{course.courseDescription}</p>
-                <p> difficulty: {avgDifficulty} </p>
+                <p> Difficulty: {avgDifficulty} </p>
             </Link>
             <section id='courseTags'>
                 {tags.map( (tag) => 
