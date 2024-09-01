@@ -37,7 +37,7 @@ const UserProfile = () => {
                 }
             } 
             else {
-                console.log("updated user is : ", updatedUser.username)
+               
                 setMsg("Username updated to " + updatedUser.username);
                 setIsError(false);
             }

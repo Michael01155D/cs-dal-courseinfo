@@ -22,14 +22,12 @@ const NewReviewForm = () => {
         if (!user) {
             navigate("/courses")
         }
-        console.log("in form user is ", user)
     }, []);
 
     const sendReview = async (event) => {
         event.preventDefault();
         const form = event.target;
         const formObj = Object.fromEntries(new FormData(form).entries());
-        console.log("formData is", formObj)
         const difficulty = formObj.Difficulty;
         const quality = formObj.Quality;
         const courseLoad = formObj["Course Load"];
@@ -52,7 +50,6 @@ const NewReviewForm = () => {
                 await createReview(newReview);
             }
             await updateUserLocally(user, setUser);
-            console.log("after calling updateUserLocally, user is: ", user);
             navigate(`/courses/${course._id}`);
         }
     }
