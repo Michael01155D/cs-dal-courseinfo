@@ -71,3 +71,21 @@ export const updateUserLocally = async (user, setUser) => {
         console.log("updateUserLocally err is", err);
     }
 }
+
+export const updateUser = async (user) => {
+    try {
+        const result = await fetch(`${url}/${user._id}`, {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
+        if (!result.error) {
+            const data = await result.json();
+            return data;
+        }
+    } catch (err) {
+        console.log("updateUserLocally err is", err);
+    }
+}

@@ -1,20 +1,24 @@
 #userProfileContainer {
     display: flex;
     flex-direction: column;
-    height: 98vh;
     align-items: center;
+    min-height: 80vh;
 }
 
 #userInfo {
-    width: 100vw;
-    text-align: center;
+    width: fit-content;
+    text-align: left;
 }
 
-.profileCategory {
-    display: inline-block;
+#userInfo > p {
     font-size: x-large;
     font-family: garamond;
     color: rgb(33, 82, 2);
     font-weight: bolder;
-    margin-right: 1%;
+}
+
+
+#showUserReviewsButton {
+    margin-top: 2%;
+    border: solid black 2px;
 }

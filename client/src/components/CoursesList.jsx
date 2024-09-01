@@ -10,12 +10,10 @@ const CoursesList = ({courses}) => {
     //todo: once course objs are added, render them using filter
     const [filteredCourses, setFilteredCourses] = useState([]);
     const { state } = useLocation();
-    //TODO: continue working from here
 
     useEffect(() => {
+        //if received state from homepage search form, apply it to checkboxes and searchbar:
         if (state) {
-            console.log("in coursesList state obj is: ", state);
-            console.log('in coursesList, formProps is: ', state.formProps);
             setQuery(state.formProps.searchQuery);
             for (const key in state.formProps) {
                 if ("" + key !== "searchQuery") {
