@@ -25,7 +25,7 @@ const CourseDetails = () => {
         if (arr.length == 0) {
             return;
         }
-        return arr.reduce((prev, curr) => prev += curr) / arr.length;
+        return (arr.reduce((prev, curr) => prev += curr) / arr.length).toFixed(2);
     }
 
     useEffect(() => {
