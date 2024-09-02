@@ -11,34 +11,21 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 0001",
-    "courseDescription": "intro to everything",
-    "year": 1,
+    "courseCode": "CSCI 3130",
+    "courseDescription": "Software Engineering",
+    "year": 3,
     "bcsRequirement": true,
-    "bacsRequirement": true
+    "bacsRequirement": true,
+    "coopRequirement": false,
+    "prerequisites": ["66d518f7c095ca8794743203", "66d51912c095ca87947434e8"]
 }
 
-##############
-POST http://localhost:3000/courses
+############## update course:
+PUT http://localhost:3000/courses/66d51af1c095ca8794746783
 Content-Type: application/json
 
 {
-    "courseCode": "CSCI 0010",
-    "courseDescription": "sequel to everything",
-    "year": 1,
-    "prerequisites": ["66b7c04129a4eda3a8089e07"],
-    "bcsRequirement": true,
-    "bacsRequirement": false
-}
-
-##############
-PUT http://localhost:3000/courses/66ad4f2a60c4ebd1a5c2c526
-Content-Type: application/json
-
-{
-    "courseCode": "CSCI 0001",
-    "courseDescription": "testingUpdate",
-    "prerequisites": []
+   
 }
 
 ##########

@@ -18,7 +18,11 @@
 }
 
 
-#showUserReviewsButton {
+#showUserReviewsButton, #changeUserNameButton {
     margin-top: 2%;
     border: solid black 2px;
+}
+
+#newUserName {
+    padding: 1%;
 }
