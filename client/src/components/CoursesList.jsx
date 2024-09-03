@@ -83,7 +83,13 @@ const CoursesList = ({courses}) => {
                 )
             )
         }
-        setFilteredCourses(queryFilter);
+        if (queryFilter.length == 0) {
+            console.log("reached")
+            const rerender = new Array();
+            setFilteredCourses(rerender);
+        } else {
+            setFilteredCourses(queryFilter);
+        }
     }, [query, checkedBoxes])
 
 

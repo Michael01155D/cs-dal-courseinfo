@@ -17,6 +17,11 @@ const CourseGroup = ( {filteredCourses} ) => {
 
     const divideCourses = () => {
         const numCourses = filteredCourses.length;
+
+        if (numCourses == 0) {
+            const reRender = [];
+            setCourseGroups(reRender);
+        }
         const remainder = numCourses % GROUP_SIZE;
     
         const numFullGroups = (numCourses - remainder) / GROUP_SIZE;
@@ -55,7 +60,7 @@ const CourseGroup = ( {filteredCourses} ) => {
     }
 
     useEffect(() => {
-        if (filteredCourses.length > 1) {
+        if (filteredCourses) {
             divideCourses();
         }
     }, [filteredCourses])
