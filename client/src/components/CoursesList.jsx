@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import '../styles/CoursesList.css';
-import CoursePreview from './CoursePreview';
 import { Link, useLocation } from 'react-router-dom';
 import  SearchFilters from './SearchFilters';
 import { activateCheckbox } from './Checkbox';
+import CourseGroup from './CourseGroup';
+
 const CoursesList = ({courses}) => {
     const [query, setQuery] = useState('');
     const [checkedBoxes, setCheckedBoxes] = useState([]);
-    //todo: once course objs are added, render them using filter
+    //courses after being filtered by input(s)
     const [filteredCourses, setFilteredCourses] = useState([]);
     const { state } = useLocation();
 
@@ -30,16 +31,16 @@ const CoursesList = ({courses}) => {
     const applyFilters = () => {
         let filterInProgress = [];
         if (checkedBoxes.includes("year1")) {
-            filterInProgress = courses.filter(c => c.year == 1);
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 1));
         }
         if (checkedBoxes.includes("year2")) {
-            filterInProgress = courses.filter(c => c.year == 2);
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 2));
         }
         if (checkedBoxes.includes("year3")) {
-            filterInProgress = courses.filter(c => c.year == 3);
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 3));
         }
         if (checkedBoxes.includes("year4")) {
-            filterInProgress = courses.filter(c => c.year == 4);
+            filterInProgress = filterInProgress.concat(courses.filter(c => c.year == 4));
         }
         if (checkedBoxes.includes("bacs")) {
             filterInProgress = filterInProgress.concat(
@@ -84,6 +85,7 @@ const CoursesList = ({courses}) => {
         }
         setFilteredCourses(queryFilter);
     }, [query, checkedBoxes])
+
 
     return(
         <div id='coursesListContainer'>
@@ -137,12 +139,8 @@ const CoursesList = ({courses}) => {
                 </section>
             </section>
             <section id='courseSection'>
-                <h4>Displaying {filteredCourses.length} out of {courses.length} Courses</h4>
-                <div id='courseGrid'>
-                    {
-                    filteredCourses.map(course => <CoursePreview key={course._id} course={course}/>)
-                    }
-                </div>
+                <h4>Search filters found {filteredCourses.length} results.</h4>
+                <CourseGroup filteredCourses={filteredCourses}/>
             </section>
         </div>
     )

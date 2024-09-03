@@ -26,7 +26,7 @@ const CoursesByYear = () => {
                 break;
             case "fourth": 
                 setYearInfo("The final stretch! Fourth year offers students a lot of freedom to complete their degree based on their areas of interest.")
-                setYearBgColor("rgba(255, 234, 1, 0.352");
+                setYearBgColor("rgba(255, 234, 1, 0.352)");
                 break;
             default:
                 break;

@@ -22,8 +22,14 @@ const HomePage = ({courses}) => {
             return Date.parse(b.reviews[b.reviews.length - 1].createdAt)
                 - Date.parse(a.reviews[a.reviews.length - 1].createdAt) 
         })
-        setFeaturedCourses(mostFeatured);
-        setRecentCourses(mostRecentReviewed);
+
+        if (courses.length < 4) {
+            setFeaturedCourses(mostFeatured);
+            setRecentCourses(mostRecentReviewed);
+            return;
+        }
+        setFeaturedCourses([mostFeatured[0], mostFeatured[1], mostFeatured[2], mostFeatured[3]]);
+        setRecentCourses([mostRecentReviewed[0], mostRecentReviewed[1], mostRecentReviewed[2]]);
     }, [])
 
     return(

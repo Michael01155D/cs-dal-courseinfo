@@ -6,15 +6,15 @@ import {Link} from 'react-router-dom';
 const CoursePreview = ({course}) => {
     
     const [tags, setTags] = useState([]);
-    //todo: adjust colors
+    //year-colors consisted with 'about year' backgrounds, see CoursesByYear.jsx
     const tagBackgrounds = {
-                            "First Year" :"lightgreen",
-                            "Second Year": "lightblue", 
-                            "Third Year": "lightred",
-                            "Fourth Year": "yellow",
+                            "First Year" :"rgba(144, 238, 144, 0.352)",
+                            "Second Year": "rgba(140, 217, 243, 0.352)", 
+                            "Third Year": "rgba(229, 43, 43, 0.352)",
+                            "Fourth Year": "rgba(255, 234, 1, 0.352)",
                             "BCS Requirement": "lightpink",
                             "BACS Requirement": "orange",
-                            "Elective": "blue",
+                            "Elective": "goldenRod",
                             "Co-op": "magenta",
                             "Certificate": "cyan"
                         };
