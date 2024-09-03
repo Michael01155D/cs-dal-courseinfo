@@ -7,9 +7,7 @@ This is a personal project to practice and improve building a MERN stack web app
 
 Frontend: 
 
--Fix bug when only 4th year courses are selected
--fix layout for courseList page
--improve layout for CourseGroup
+-improve styling in general for entire website 
 
 Backend:
 

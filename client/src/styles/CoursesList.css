@@ -70,6 +70,7 @@ background-color: rgba(173, 216, 230, 0.509);
 #browseByYear > h4 ~ * {
   padding: 1%;
   width: fit-content;
+  height: fit-content;
   margin: auto;
 }
 
@@ -187,9 +188,8 @@ background-color: rgba(173, 216, 230, 0.509);
     }
 
     #browseByYear > h4 ~ * {
-      padding: 3%;
-      width: 50%;
-      margin: auto;
+      padding: 0;
+      margin: 10% auto;
     }
 
     #browseByYear > h4 ~ *:hover {
